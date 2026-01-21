@@ -208,7 +208,7 @@
         </div>
 
         <div>
-          <label for="voltage">Voltage (V)</label>
+          <label for="voltage" id="voltageLabel">Voltage (V)</label>
           <input id="voltage" type="number" inputmode="decimal" step="any" value="400" />
         </div>
 
@@ -263,6 +263,44 @@
       return x.toFixed(dec);
     }
 
+    let lastDefaultVoltage = null;
+    
+    function getDefaultVoltage(phase){
+      return phase === "3" ? 400 : 230; // 3φ tipico L-L 400V, 1φ tipico L-N 230V
+    }
+    
+    function updateVoltageLabel(phase){
+      const lbl = $("voltageLabel");
+      if(!lbl) return;
+      lbl.textContent = phase === "3"
+        ? "Voltage (V) — line-to-line (L-L)"
+        : "Voltage (V) — line-to-neutral (L-N)";
+    }
+    
+    /**
+     * Applica il default di tensione quando cambia la fase.
+     * Non sovrascrive un valore custom: aggiorna solo se il valore attuale
+     * è vuoto oppure coincide con l’ultimo default applicato.
+     */
+    function applyPhaseDefaults(force=false){
+      const phase = $("phase").value; // "3" o "1"
+      const defV = getDefaultVoltage(phase);
+      updateVoltageLabel(phase);
+    
+      const vEl = $("voltage");
+      const currentV = parseFloat(vEl.value);
+    
+      const shouldReplace =
+        force ||
+        !Number.isFinite(currentV) ||
+        currentV === lastDefaultVoltage;
+    
+      if(shouldReplace){
+        vEl.value = defV;
+      }
+      lastDefaultVoltage = defV;
+    } 
+
     function calculate(){
       const kva = num("kva");
       const V = num("voltage");
@@ -298,6 +336,10 @@
     }
 
     $("calcBtn").addEventListener("click", calculate);
+    $("phase").addEventListener("change", () => {
+      applyPhaseDefaults(false);
+      calculate();
+        });
     $("resetBtn").addEventListener("click", resetForm);
 
     // auto-calc on enter
@@ -308,6 +350,7 @@
     });
 
     // initial
+    applyPhaseDefaults(true);
     calculate();
   </script>
 </body>
