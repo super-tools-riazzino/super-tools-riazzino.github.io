@@ -1,1 +1,255 @@
+/* Super Tools — shared styles */
+
+:root{
+  --anthracite:#1f1f1f;
+  --yellow:#f3c400;
+  --white:#ffffff;
+  --muted:#f6f6f6;
+  --text:#111111;
+
+  --radius:16px;
+  --shadow:0 10px 24px rgba(0,0,0,.12);
+
+  --border:#e8e8e8;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:var(--white);
+  line-height:1.45;
+}
+
+/* Layout */
+.wrap{
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 16px 18px;
+}
+
+/* Header / Nav */
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:var(--anthracite);
+  color:var(--white);
+  border-bottom: 4px solid var(--yellow);
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.brand{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  font-weight:800;
+  letter-spacing:.2px;
+}
+
+.brand .dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--yellow);
+  display:inline-block;
+  transform: translateY(-2px);
+}
+
+.brand small{
+  font-weight:600;
+  opacity:.85;
+}
+
+nav{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  font-weight:700;
+}
+
+nav a{
+  color:var(--white);
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:999px;
+  transition: background .15s ease;
+}
+nav a:hover{ background: rgba(255,255,255,.10); }
+
+/* Hero */
+.hero{
+  background: linear-gradient(180deg, rgba(243,196,0,.20), rgba(243,196,0,0));
+  border-bottom: 1px solid #eee;
+}
+.hero h1{
+  margin: 8px 0 6px;
+  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  letter-spacing:.2px;
+}
+.hero p{
+  margin:0;
+  max-width: 820px;
+  opacity:.9;
+  font-size: 1.05rem;
+}
+
+/* Cards / Grid */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:14px;
+  margin-top: 10px;
+}
+
+.card{
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--yellow);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+.section-title{
+  margin: 26px 0 10px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing:.2px;
+}
+
+/* Typography */
+h2{
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing:.2px;
+}
+p{ margin: 0 0 10px; }
+ul{ margin: 0 0 10px 18px; padding:0; }
+li{ margin: 6px 0; }
+
+code{
+  background: var(--muted);
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background: var(--yellow);
+  color: #111;
+  border: none;
+  text-decoration:none;
+  padding: 12px 16px;
+  border-radius: 999px;
+  font-weight: 900;
+  box-shadow: 0 10px 18px rgba(0,0,0,.12);
+  cursor:pointer;
+  transition: transform .15s ease;
+}
+.btn:hover{ transform: translateY(-1px); }
+
+.btn.secondary{
+  background: var(--anthracite);
+  color: var(--white);
+  box-shadow: none;
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+/* Tags / Notes */
+.tag{
+  display:inline-block;
+  font-weight:800;
+  font-size:.78rem;
+  padding:4px 10px;
+  border-radius:999px;
+  background: var(--muted);
+  margin-bottom: 10px;
+}
+
+.note{
+  margin-top: 14px;
+  background: #fff8d6;
+  border: 1px solid rgba(243,196,0,.6);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-weight: 700;
+}
+
+/* Tool forms */
+label{
+  display:block;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+input, select{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  background: #fff;
+}
+
+.row{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top: 12px;
+}
+
+.result{
+  margin-top: 14px;
+  background: #fff8d6;
+  border: 1px solid rgba(243,196,0,.6);
+  border-radius: var(--radius);
+  padding: 14px;
+  font-weight: 900;
+  font-size: 1.05rem;
+}
+
+.hint{
+  margin-top: 10px;
+  font-size: .95rem;
+  opacity: .85;
+}
+
+/* Footer */
+footer{
+  margin-top: 30px;
+  background: var(--anthracite);
+  color: var(--white);
+  border-top: 4px solid var(--yellow);
+}
+
+footer .muted{
+  opacity:.85;
+  font-size:.95rem;
+  margin: 8px 0 0;
+}
+
+/* Links (About page style) */
+a.link{
+  color:#111;
+  font-weight:900;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
 
