@@ -282,24 +282,16 @@
      * Non sovrascrive un valore custom: aggiorna solo se il valore attuale
      * è vuoto oppure coincide con l’ultimo default applicato.
      */
-    function applyPhaseDefaults(force=false){
+    function applyPhaseDefaults(){
       const phase = $("phase").value; // "3" o "1"
       const defV = getDefaultVoltage(phase);
+    
       updateVoltageLabel(phase);
     
       const vEl = $("voltage");
-      const currentV = parseFloat(vEl.value);
-    
-      const shouldReplace =
-        force ||
-        !Number.isFinite(currentV) ||
-        currentV === lastDefaultVoltage;
-    
-      if(shouldReplace){
-        vEl.value = defV;
-      }
+      vEl.value = defV;          // <-- SEMPRE default quando cambia fase
       lastDefaultVoltage = defV;
-    } 
+    }
 
     function calculate(){
       const kva = num("kva");
@@ -329,17 +321,19 @@
 
     function resetForm(){
       $("kva").value = 100;
-      $("voltage").value = 400;
       $("pf").value = 0.95;
       $("phase").value = "3";
+    
+      applyPhaseDefaults();          // setta 400 e label corretta
       $("result").textContent = "Result: —";
+      calculate();
     }
 
     $("calcBtn").addEventListener("click", calculate);
     $("phase").addEventListener("change", () => {
-      applyPhaseDefaults(false);
+      applyPhaseDefaults();
       calculate();
-        });
+    });
     $("resetBtn").addEventListener("click", resetForm);
 
     // auto-calc on enter
