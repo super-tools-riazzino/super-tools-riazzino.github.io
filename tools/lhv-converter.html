@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -80,50 +80,51 @@
       </div>
 
       <div class="row">
-        <button class="btn" id="calcBtn">Calcola</button>
+        <button class="btn" id="calcBtn">Calculate</button>
         <button class="btn secondary" id="resetBtn" type="button">Reset</button>
       </div>
 
-      <div class="result" id="result" role="status" aria-live="polite">Risultato: —</div>
+      <div class="result" id="result" role="status" aria-live="polite">Result: —</div>
       <div class="hint" id="hint"></div>
     </div>
 
     <div class="card" style="margin-top:14px;">
-      <h2>Note didattiche (Normal vs Standard, conversioni)</h2>
+      <h2>Didactic notes (Normal vs Standard, conversions)</h2>
 
       <p>
-        In questa pagina usiamo le definizioni:
+        On this page we use these definitions:
       </p>
       <ul>
-        <li><strong>Normal (N)</strong>: riferimento a <strong>0°C</strong> (273.15 K) a pressione costante.</li>
-        <li><strong>Standard (S)</strong>: riferimento a <strong>15°C</strong> (288.15 K) a pressione costante.</li>
+        <li><strong>Normal (N)</strong>: reference at <strong>0°C</strong> (273.15 K) at constant pressure.</li>
+        <li><strong>Standard (S)</strong>: reference at <strong>15°C</strong> (288.15 K) at constant pressure.</li>
       </ul>
 
       <p>
-        Per i gas ideali, a stessa pressione, il volume è proporzionale alla temperatura assoluta:
-        quindi la densità (mol/m³) è proporzionale a <code>1/T</code> e una grandezza
-        <strong>energia per volume</strong> scala anch’essa come <code>1/T</code>.
+        For ideal gases at the same pressure, volume is proportional to absolute temperature:
+        therefore density (mol/m³) is proportional to <code>1/T</code>, and a quantity expressed as
+        <strong>energy per volume</strong> also scales as <code>1/T</code>.
       </p>
 
       <div class="note">
-        Assunzione: conversione Normal ↔ Standard basata su <strong>gas ideale</strong> e <strong>stessa pressione</strong>.
+        Assumption: Normal ↔ Standard conversion is based on the <strong>ideal gas</strong> model at <strong>constant pressure</strong>.
       </div>
 
-      <h2 style="margin-top:16px;">Fattori di conversione usati</h2>
+      <h2 style="margin-top:16px;">Conversion factors used</h2>
       <ul>
-        <li><strong>ft³ ↔ m³</strong>: <code>1 ft³ = 0.028316846592 m³</code> (quindi <code>1 m³ = 35.3146667 ft³</code>)</li>
+        <li><strong>ft³ ↔ m³</strong>: <code>1 ft³ = 0.028316846592 m³</code> (so <code>1 m³ = 35.3146667 ft³</code>)</li>
         <li><strong>BTU ↔ kJ</strong> (BTU IT): <code>1 BTU = 1.05505585262 kJ</code></li>
         <li><strong>kWh ↔ kJ</strong>: <code>1 kWh = 3600 kJ</code></li>
-        <li><strong>Normal ↔ Standard</strong> (energia/volume):<br/>
-          <code>(E/V)_S = (E/V)_N × (T_N / T_S)</code> e <code>(E/V)_N = (E/V)_S × (T_S / T_N)</code><br/>
-          con <code>T_N = 273.15 K</code>, <code>T_S = 288.15 K</code>
+        <li><strong>Normal ↔ Standard</strong> (energy/volume):<br/>
+          <code>(E/V)<sub>S</sub> = (E/V)<sub>N</sub> × (T<sub>N</sub> / T<sub>S</sub>)</code> and
+          <code>(E/V)<sub>N</sub> = (E/V)<sub>S</sub> × (T<sub>S</sub> / T<sub>N</sub>)</code><br/>
+          with <code>T<sub>N</sub> = 273.15 K</code>, <code>T<sub>S</sub> = 288.15 K</code>
         </li>
       </ul>
 
       <p class="hint">
-        Nota sulle unità: qui consideriamo <strong>Ncf</strong> come “cubic foot a condizioni Normal (0°C)” e
-        <strong>Scf</strong> come “cubic foot a condizioni Standard (15°C)”, in modo coerente con
-        <strong>Nm³</strong> e <strong>Sm³</strong>.
+        Note on units: here we treat <strong>Ncf</strong> as “cubic foot at Normal conditions (0°C)” and
+        <strong>Scf</strong> as “cubic foot at Standard conditions (15°C)”, consistent with
+        <strong>Nm³</strong> and <strong>Sm³</strong>.
       </p>
     </div>
   </main>
@@ -241,7 +242,7 @@
       const outU = parseUnit(uOut);
 
       if(!Number.isFinite(x) || !inU || !outU){
-        $("result").textContent = "Risultato: inserisci un valore e seleziona unità valide.";
+        $("result").textContent = "Result: enter a value and select valid units.";
         $("hint").textContent = "";
         return;
       }
@@ -262,13 +263,13 @@
       // 6) kJ to target energy unit
       z = fromKJ(z, outU.energy);
 
-      $("result").textContent = `Risultato: ${format(z, dp)} ${uOut}`;
+      $("result").textContent = `Result: ${format(z, dp)} ${uOut}`;
 
-      // Tiny didactic hint about condition scaling
+      // Small didactic hint about condition scaling
       const ratioNS = (T_N / T_S);
       const ratioSN = (T_S / T_N);
       $("hint").innerHTML =
-        `Base interna: <code>kJ/Nm3</code>. Normal↔Standard via gas ideale: ` +
+        `Internal base: <code>kJ/Nm3</code>. Normal↔Standard (ideal gas): ` +
         `<code>(E/V)<sub>S</sub> = (E/V)<sub>N</sub> × ${ratioNS.toFixed(6)}</code>, ` +
         `<code>(E/V)<sub>N</sub> = (E/V)<sub>S</sub> × ${ratioSN.toFixed(6)}</code>.`;
     }
@@ -278,7 +279,7 @@
       $("uIn").value = "kJ/Nm3";
       $("uOut").value = "kWh/Nm3";
       $("dp").value = "2";
-      $("result").textContent = "Risultato: —";
+      $("result").textContent = "Result: —";
       $("hint").textContent = "";
       calculate();
     }
