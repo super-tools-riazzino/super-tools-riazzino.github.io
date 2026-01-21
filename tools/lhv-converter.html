@@ -1,1 +1,298 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LHV Converter | Super Tools</title>
+  <meta name="description" content="Convert LHV / energy-per-volume units between BTU/Scf, BTU/Ncf, kJ/Sm3, kJ/Nm3, kWh/Sm3, kWh/Nm3." />
 
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Super Tools</span>
+      </div>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="./">Tools</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>LHV Converter</h1>
+      <p>
+        Convert energy-per-volume units across <strong>Normal</strong> (0°C) and <strong>Standard</strong> (15°C)
+        conditions, including BTU, kJ and kWh.
+      </p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="card">
+      <div class="grid">
+        <div>
+          <label for="val">Value</label>
+          <input id="val" type="number" inputmode="decimal" step="any" value="1000" />
+        </div>
+
+        <div>
+          <label for="uIn">Input unit</label>
+          <select id="uIn">
+            <option value="BTU/Scf">BTU/Scf</option>
+            <option value="BTU/Ncf">BTU/Ncf</option>
+            <option value="kJ/Sm3">kJ/Sm3</option>
+            <option value="kJ/Nm3" selected>kJ/Nm3</option>
+            <option value="kWh/Sm3">kWh/Sm3</option>
+            <option value="kWh/Nm3">kWh/Nm3</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="uOut">Output unit</label>
+          <select id="uOut">
+            <option value="BTU/Scf">BTU/Scf</option>
+            <option value="BTU/Ncf">BTU/Ncf</option>
+            <option value="kJ/Sm3">kJ/Sm3</option>
+            <option value="kJ/Nm3">kJ/Nm3</option>
+            <option value="kWh/Sm3">kWh/Sm3</option>
+            <option value="kWh/Nm3" selected>kWh/Nm3</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="dp">Decimals</label>
+          <select id="dp">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn" id="calcBtn">Calcola</button>
+        <button class="btn secondary" id="resetBtn" type="button">Reset</button>
+      </div>
+
+      <div class="result" id="result" role="status" aria-live="polite">Risultato: —</div>
+      <div class="hint" id="hint"></div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <h2>Note didattiche (Normal vs Standard, conversioni)</h2>
+
+      <p>
+        In questa pagina usiamo le definizioni:
+      </p>
+      <ul>
+        <li><strong>Normal (N)</strong>: riferimento a <strong>0°C</strong> (273.15 K) a pressione costante.</li>
+        <li><strong>Standard (S)</strong>: riferimento a <strong>15°C</strong> (288.15 K) a pressione costante.</li>
+      </ul>
+
+      <p>
+        Per i gas ideali, a stessa pressione, il volume è proporzionale alla temperatura assoluta:
+        quindi la densità (mol/m³) è proporzionale a <code>1/T</code> e una grandezza
+        <strong>energia per volume</strong> scala anch’essa come <code>1/T</code>.
+      </p>
+
+      <div class="note">
+        Assunzione: conversione Normal ↔ Standard basata su <strong>gas ideale</strong> e <strong>stessa pressione</strong>.
+      </div>
+
+      <h2 style="margin-top:16px;">Fattori di conversione usati</h2>
+      <ul>
+        <li><strong>ft³ ↔ m³</strong>: <code>1 ft³ = 0.028316846592 m³</code> (quindi <code>1 m³ = 35.3146667 ft³</code>)</li>
+        <li><strong>BTU ↔ kJ</strong> (BTU IT): <code>1 BTU = 1.05505585262 kJ</code></li>
+        <li><strong>kWh ↔ kJ</strong>: <code>1 kWh = 3600 kJ</code></li>
+        <li><strong>Normal ↔ Standard</strong> (energia/volume):<br/>
+          <code>(E/V)_S = (E/V)_N × (T_N / T_S)</code> e <code>(E/V)_N = (E/V)_S × (T_S / T_N)</code><br/>
+          con <code>T_N = 273.15 K</code>, <code>T_S = 288.15 K</code>
+        </li>
+      </ul>
+
+      <p class="hint">
+        Nota sulle unità: qui consideriamo <strong>Ncf</strong> come “cubic foot a condizioni Normal (0°C)” e
+        <strong>Scf</strong> come “cubic foot a condizioni Standard (15°C)”, in modo coerente con
+        <strong>Nm³</strong> e <strong>Sm³</strong>.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="font-weight:900; font-size:1.05rem;">Super Tools</div>
+      <div class="muted">Educational &amp; utility calculators. Runs entirely in your browser.</div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    // ---- Constants (deliberately explicit for didactic clarity) ----
+    const T_N = 273.15;   // K (0°C)
+    const T_S = 288.15;   // K (15°C)
+
+    const FT3_TO_M3 = 0.028316846592;              // 1 ft^3 in m^3
+    const M3_TO_FT3 = 1 / FT3_TO_M3;               // 35.3146667...
+
+    const BTU_TO_KJ = 1.05505585262;               // BTU (IT) to kJ
+    const KJ_TO_BTU = 1 / BTU_TO_KJ;
+
+    const KWH_TO_KJ = 3600;                        // kWh to kJ
+    const KJ_TO_KWH = 1 / KWH_TO_KJ;
+
+    function parseUnit(u){
+      // Returns { energy: "BTU"|"kJ"|"kWh", vol: "cf"|"m3", cond: "N"|"S" }
+      // Supported: BTU/Scf, BTU/Ncf, kJ/Sm3, kJ/Nm3, kWh/Sm3, kWh/Nm3
+      const [e, per] = u.split("/");
+      if(!e || !per) return null;
+
+      const energy = e; // "BTU" | "kJ" | "kWh"
+      let vol = null;
+      let cond = null;
+
+      // cf variants
+      if(per === "Scf"){ vol = "cf"; cond = "S"; }
+      else if(per === "Ncf"){ vol = "cf"; cond = "N"; }
+
+      // m3 variants (note: input uses "m3" literally in the select values)
+      else if(per === "Sm3"){ vol = "m3"; cond = "S"; }
+      else if(per === "Nm3"){ vol = "m3"; cond = "N"; }
+
+      return { energy, vol, cond };
+    }
+
+    function num(id){
+      const v = parseFloat($(id).value);
+      return Number.isFinite(v) ? v : NaN;
+    }
+
+    function roundTo(x, dp){
+      const p = Math.pow(10, dp);
+      return Math.round((x + Number.EPSILON) * p) / p;
+    }
+
+    function format(x, dp){
+      // keep fixed decimals for UI consistency
+      return roundTo(x, dp).toFixed(dp);
+    }
+
+    function toKJ(x, energy){
+      if(energy === "kJ") return x;
+      if(energy === "BTU") return x * BTU_TO_KJ;
+      if(energy === "kWh") return x * KWH_TO_KJ;
+      return NaN;
+    }
+
+    function fromKJ(x, energy){
+      if(energy === "kJ") return x;
+      if(energy === "BTU") return x * KJ_TO_BTU;
+      if(energy === "kWh") return x * KJ_TO_KWH;
+      return NaN;
+    }
+
+    function perVolToPerM3(x, vol){
+      // input: energy per (cf or m3), output: energy per m3
+      if(vol === "m3") return x;
+      if(vol === "cf") return x * M3_TO_FT3; // (E/cf) * (cf/m3) = E/m3
+      return NaN;
+    }
+
+    function perM3ToPerVol(x, vol){
+      // input: energy per m3, output: energy per (cf or m3)
+      if(vol === "m3") return x;
+      if(vol === "cf") return x * FT3_TO_M3; // (E/m3) * (m3/cf) = E/cf
+      return NaN;
+    }
+
+    function condToNormal(x, cond){
+      // x is energy per m3 at condition cond, convert to energy per Nm3 (Normal)
+      // (E/V)_N = (E/V)_S * (T_S/T_N)
+      if(cond === "N") return x;
+      if(cond === "S") return x * (T_S / T_N);
+      return NaN;
+    }
+
+    function normalToCond(x, cond){
+      // x is energy per Nm3, convert to target condition
+      // (E/V)_S = (E/V)_N * (T_N/T_S)
+      if(cond === "N") return x;
+      if(cond === "S") return x * (T_N / T_S);
+      return NaN;
+    }
+
+    function calculate(){
+      const x = num("val");
+      const uIn = $("uIn").value;
+      const uOut = $("uOut").value;
+      const dp = parseInt($("dp").value, 10);
+
+      const inU = parseUnit(uIn);
+      const outU = parseUnit(uOut);
+
+      if(!Number.isFinite(x) || !inU || !outU){
+        $("result").textContent = "Risultato: inserisci un valore e seleziona unità valide.";
+        $("hint").textContent = "";
+        return;
+      }
+
+      // ---- Normalize to base: kJ/Nm3 ----
+      // 1) energy to kJ
+      let y = toKJ(x, inU.energy);                 // kJ / (vol)
+      // 2) volume to m3 (still per condition)
+      y = perVolToPerM3(y, inU.vol);               // kJ / m3 at inU.cond
+      // 3) condition to Normal
+      y = condToNormal(y, inU.cond);               // kJ / Nm3
+
+      // ---- Convert from base to output ----
+      // 4) Normal to target condition
+      let z = normalToCond(y, outU.cond);          // kJ / m3 at outU.cond
+      // 5) m3 to target volume unit
+      z = perM3ToPerVol(z, outU.vol);              // kJ / (target vol)
+      // 6) kJ to target energy unit
+      z = fromKJ(z, outU.energy);
+
+      $("result").textContent = `Risultato: ${format(z, dp)} ${uOut}`;
+
+      // Tiny didactic hint about condition scaling
+      const ratioNS = (T_N / T_S);
+      const ratioSN = (T_S / T_N);
+      $("hint").innerHTML =
+        `Base interna: <code>kJ/Nm3</code>. Normal↔Standard via gas ideale: ` +
+        `<code>(E/V)<sub>S</sub> = (E/V)<sub>N</sub> × ${ratioNS.toFixed(6)}</code>, ` +
+        `<code>(E/V)<sub>N</sub> = (E/V)<sub>S</sub> × ${ratioSN.toFixed(6)}</code>.`;
+    }
+
+    function resetForm(){
+      $("val").value = 1000;
+      $("uIn").value = "kJ/Nm3";
+      $("uOut").value = "kWh/Nm3";
+      $("dp").value = "2";
+      $("result").textContent = "Risultato: —";
+      $("hint").textContent = "";
+      calculate();
+    }
+
+    $("calcBtn").addEventListener("click", calculate);
+    $("resetBtn").addEventListener("click", resetForm);
+
+    // Optional: recalc on Enter
+    $("val").addEventListener("keydown", (e) => {
+      if(e.key === "Enter") calculate();
+    });
+
+    // initial
+    calculate();
+  </script>
+</body>
+</html>
