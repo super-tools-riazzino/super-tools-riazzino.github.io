@@ -1,1 +1,266 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Super Tools</title>
+  <meta name="description" content="About Super Tools: piccoli strumenti web leggeri per calcoli e conversioni, eseguiti interamente nel browser." />
+
+  <style>
+    :root{
+      --anthracite:#1f1f1f;
+      --yellow:#f3c400;
+      --white:#ffffff;
+      --muted:#f6f6f6;
+      --text:#111111;
+      --radius:16px;
+      --shadow:0 10px 24px rgba(0,0,0,.12);
+      --border:#e8e8e8;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.45;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:var(--anthracite);
+      color:var(--white);
+      border-bottom: 4px solid var(--yellow);
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 16px 18px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .brand .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--yellow);
+      display:inline-block;
+      transform: translateY(-2px);
+    }
+    .brand small{
+      font-weight:600;
+      opacity:.85;
+    }
+
+    nav{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      font-weight:700;
+    }
+    nav a{
+      color:var(--white);
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:999px;
+      transition: background .15s ease;
+    }
+    nav a:hover{ background: rgba(255,255,255,.10); }
+
+    .hero{
+      background: linear-gradient(180deg, rgba(243,196,0,.20), rgba(243,196,0,0));
+      border-bottom: 1px solid #eee;
+    }
+    .hero h1{
+      margin: 8px 0 6px;
+      font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+      letter-spacing:.2px;
+    }
+    .hero p{
+      margin:0;
+      max-width: 820px;
+      opacity:.9;
+      font-size: 1.05rem;
+    }
+
+    .card{
+      margin-top: 18px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--yellow);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+
+    h2{
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing:.2px;
+    }
+
+    p{ margin: 0 0 10px; }
+    ul{ margin: 0 0 10px 18px; padding:0; }
+    li{ margin: 6px 0; }
+
+    .note{
+      margin-top: 12px;
+      background: #fff8d6;
+      border: 1px solid rgba(243,196,0,.6);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      font-weight: 800;
+    }
+
+    code{
+      background: var(--muted);
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-weight: 800;
+    }
+
+    a.link{
+      color: #111;
+      font-weight: 900;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    footer{
+      margin-top: 28px;
+      background: var(--anthracite);
+      color: var(--white);
+      border-top: 4px solid var(--yellow);
+    }
+    footer .muted{
+      opacity:.85;
+      font-size:.95rem;
+      margin: 8px 0 0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Super Tools</span>
+        <small>web toolbox</small>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="tools/">Tools</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>About</h1>
+      <p>
+        Super Tools è una raccolta di piccoli strumenti web “leggeri” per calcoli rapidi, conversioni e mini-helper
+        pensati per lavoro quotidiano e per imparare facendo.
+        Tutto gira <strong>direttamente nel browser</strong> (senza installazioni).
+      </p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="card">
+      <h2>Obiettivo</h2>
+      <p>
+        Creare tool semplici, chiari e immediati: una pagina = un problema risolto.
+        Ogni strumento è pensato per essere:
+      </p>
+      <ul>
+        <li><strong>Veloce</strong> (interfaccia minimale, calcolo istantaneo)</li>
+        <li><strong>Trasparente</strong> (formula visibile, niente “magia”)</li>
+        <li><strong>Offline-friendly</strong> (una volta caricata la pagina, funziona senza servizi esterni)</li>
+      </ul>
+
+      <div class="note">
+        Suggerimento: ogni tool vive sotto <code>/tools/</code> e può essere aggiunto/aggiornato senza impattare gli altri.
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Come sono fatti i tool</h2>
+        <ul>
+          <li>HTML/CSS/JS “vanilla” (niente build, niente dipendenze)</li>
+          <li>Input validati e messaggi chiari</li>
+          <li>Risultati leggibili (formattazione sensata)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Note & responsabilità</h2>
+        <p>
+          Questi strumenti sono <strong>educational / utility</strong>. Verifica sempre i risultati
+          quando li usi in contesti critici (progettazione, sicurezza, normative, ecc.).
+        </p>
+        <p>
+          Se trovi un errore o vuoi una feature, apri una Issue sul repository.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Privacy</h2>
+        <p>
+          Non viene inviato nessun dato a server: i calcoli avvengono nel browser.
+          L’hosting è su GitHub Pages.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Contatti / contributi</h2>
+        <p>
+          Vuoi proporre un tool? Ottimo: prepara una pagina in <code>/tools/</code> e aggiungi il link in Home.
+        </p>
+        <p>
+          Repository: <a class="link" href="https://github.com/super-tools-riazzino/super-tools-riazzino.github.io">GitHub</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="font-weight:900; font-size:1.05rem;">Super Tools</div>
+      <div class="muted">
+        Public, non-confidential learning &amp; utility tools. Built with HTML/CSS/JS on GitHub Pages.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
 
