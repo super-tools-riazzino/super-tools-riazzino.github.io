@@ -231,7 +231,7 @@
         <button class="btn secondary" id="resetBtn" type="button">Reset</button>
       </div>
 
-      <div class="result" id="result">Result: —</div>
+      <div class="result" id="result" role="status" aria-live="polite">Result: —</div>
 
       <div class="hint">
         Formula used:<br/>
@@ -277,14 +277,14 @@
         $("result").textContent = "Result: voltage must be > 0.";
         return;
       }
-      if(pf <= 0 || pf > 1.5){
-        $("result").textContent = "Result: PF should be > 0 (typically ≤ 1).";
+      if(pf <= 0 || pf > 1){
+        $("result").textContent = "Result: PF must be between 0 and 1.";
         return;
       }
 
-      const kWatt = kva * 1000;
+      const VA = kva * 1000;
       const denom = phase === "3" ? (V * Math.sqrt(3) * pf) : (V * pf);
-      const I = kWatt / denom;
+      const I = VA / denom;
 
       $("result").textContent = `Result: ${formatA(I)} A`;
     }
