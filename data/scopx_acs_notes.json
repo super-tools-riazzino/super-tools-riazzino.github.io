@@ -175,13 +175,5 @@
     "shortDescription": "Keep existing Battery Charger 120 VDC",
     "longDescription": "Battery Charger 120 VDC is latest standard and it will be kept"
   }
-  {
-    "group": "4444",
-    "index": "4444.101",
-    "groupDescription": "TEST GROUP DESCRIPTION",
-    "indexDescription": "Test Index Description",
-    "shortDescription": "Test Short Description",
-    "longDescription": "Test Long Description"
-  }
 ]
 
