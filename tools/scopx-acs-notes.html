@@ -54,6 +54,40 @@
     .pill { display:inline-block; padding: 4px 10px; border-radius: 999px; border:1px solid rgba(255,255,255,.12); opacity:.9; }
     .muted { opacity:.75; }
     .warn { margin-top:12px; padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); }
+  
+/* --- Modal readability fix --- */
+.modal {
+  color: #fff;                 /* testo bianco nel modal */
+}
+
+.modal h3,
+.modal .v {
+  color: #fff;                 /* testo principale */
+}
+
+.modal .k,
+.modal .muted,
+.modal #modalSubtitle {
+  color: rgba(255,255,255,.78); /* label e testo secondario leggibile */
+}
+
+.modal .pill {
+  color: #fff;
+}
+
+/* Bottoni dentro al modal (Close / Copy Short / Copy Long) */
+.modal .btn-sm {
+  color: #fff;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.modal .btn-sm:hover {
+  background: rgba(255,255,255,.10);
+}
+
+/* Opzionale: migliora leggibilità della riga separatrice (quella gialla) se vuoi mantenerla */
+    
   </style>
 </head>
 
