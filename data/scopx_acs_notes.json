@@ -1,1 +1,179 @@
+[
+  {
+    "group": "1050",
+    "index": "1050.01",
+    "groupDescription": "FIRE DETECTION SYSTEM",
+    "indexDescription": "No / Other Fire Detection System",
+    "shortDescription": "Siemens Fire Detection System",
+    "longDescription": "The Fire Detection System is provided by Siemens and will remain unchanged. Please modify the software to acquire the existing signals from this system."
+  },
+  {
+    "group": "1091",
+    "index": "1091.02",
+    "groupDescription": "FIRE SUPPRESSANT SUPERVISED ISOLATION VALVES",
+    "indexDescription": "Isolation Valves - Switches and Software",
+    "shortDescription": "CO2 Manual Blocking Valve",
+    "longDescription": "Wording from the offer: The manual blocking valve for fixed CO2 gas extinguishing systems is used to prevent extinguishing gas discharging into the protected area when not required. The blocking valve must remain in the closed position when the hazard area is occupied and open when the hazard area is not occupied. It is also useful for preventing accidental discharges during maintenance and inspection operations. It is screwed onto the discharge manifold. A 2-pole limit switch (NC / NO) is fitted, set to change state when the valve is opened or closed, and to send an electrical signal to the fire system to warn that the system is isolated or operative. The supply of a new CO2 Manual Blocking Valve is included. Modification to the current CO2 line to fit in the new blocking valve is required. These project-specific adaptation needs to be performed locally during installation."
+  },
+  {
+    "group": "1110",
+    "index": "1110.03",
+    "groupDescription": "ENCLOSURE DOOR POSITION ALARM",
+    "indexDescription": "Door Open Alarm and Fire System Lockout",
+    "shortDescription": "Siemens Fire Fighting System Logic",
+    "longDescription": "Door position switch logic in Siemens Fire Fighting System will disable the CO2 extinguishing system."
+  },
+  {
+    "group": "18_700",
+    "index": "18.7001",
+    "groupDescription": "PACKAGE DEVICE AND INSTRUMENTATION UPDATES",
+    "indexDescription": "In Scope",
+    "shortDescription": "Package Instrumentation Upgrade",
+    "longDescription": "Please refer to offer section 2.16 Package Instrumentation Upgrade to Yokogawa for the list of the instrument which requires to be modified to Yokogawa or latest OEM standards. PTR comment: New Instrumentation We provide new instrumentation for the Fuel Gas Line (2PT in state of the 4 PS), Vibration, Instrumental Air System, Gas detection System, Fire Detection System and Package Emergency Stop PB."
+  },
+  {
+    "group": "2085",
+    "index": "2085.01",
+    "groupDescription": "SOLAR PROVIDED PACKAGE DEVICE RE-WIRING / RE-CABLING",
+    "indexDescription": "No",
+    "shortDescription": "Package Rewiring Offer",
+    "longDescription": "Wording from the offer: The renewal of the interconnecting cabling from the instrumentation within the package enclosure and the auxiliary cubicle is not included in this offer. The renewal of power supply cables is not included in this offer. During the project execution, a cables list (including type of cables, length,…) will be provided. The customer is responsible for supplying all new cables. Package rewiring is mandatory for a control system upgrade. Other cables under customer responsibility (like boiler signal exchange, MV system references, etc.) may be re-routed from the former control panel location to the new location or replaced by customer (out of Solar Turbines scope of supply). Following the customer request to install the control and auxiliary panels off skid, the off-skid installation distance shall refer to the actual cable routing length from each field device to the new control system panels installed in the control room. Solar Turbines recommends keeping the cable length within approximately 35–40 meters to avoid impacts on cable sizing, voltage drop, and signal integrity. Longer distances (maximum 100 meters) may require cable size upgrades, additional engineering analysis, and potential design modifications. Cable glands, cable trays and modification are also under customer scope. IMPORTANT: Engineer team must provide the cable list."
+  },
+  {
+    "group": "2086",
+    "index": "2086.03",
+    "groupDescription": "CUSTOMER PROVIDED PACKAGE RE-WIRING / RE-CABLING",
+    "indexDescription": "Cables / Cable Trays / Glands / Junction Boxes",
+    "shortDescription": "Package Rewiring Offer",
+    "longDescription": "Wording from the offer: The renewal of the interconnecting cabling from the instrumentation within the package enclosure and the auxiliary cubicle is not included in this offer. The renewal of power supply cables is not included in this offer. During the project execution, a cables list (including type of cables, length,…) will be provided. The customer is responsible for supplying all new cables. Package rewiring is mandatory for a control system upgrade. Other cables under customer responsibility (like boiler signal exchange, MV system references, etc.) may be re-routed from the former control panel location to the new location or replaced by customer (out of Solar Turbines scope of supply). Following the customer request to install the control and auxiliary panels off skid, the off-skid installation distance shall refer to the actual cable routing length from each field device to the new control system panels installed in the control room. Solar Turbines recommends keeping the cable length within approximately 35–40 meters to avoid impacts on cable sizing, voltage drop, and signal integrity. Longer distances (maximum 100 meters) may require cable size upgrades, additional engineering analysis, and potential design modifications. Cable glands, cable trays and modification are also under customer scope. IMPORTANT: Engineer team must provide the cable list."
+  },
+  {
+    "group": "21",
+    "index": "21.01",
+    "groupDescription": "PACKAGE WIRING / CABLE TYPE",
+    "indexDescription": "Rigid Conduit",
+    "shortDescription": "Package Rewiring Offer",
+    "longDescription": "Wording from the offer: The renewal of the interconnecting cabling from the instrumentation within the package enclosure and the auxiliary cubicle is not included in this offer. The renewal of power supply cables is not included in this offer. During the project execution, a cables list (including type of cables, length,…) will be provided. The customer is responsible for supplying all new cables. Package rewiring is mandatory for a control system upgrade. Other cables under customer responsibility (like boiler signal exchange, MV system references, etc.) may be re-routed from the former control panel location to the new location or replaced by customer (out of Solar Turbines scope of supply). Following the customer request to install the control and auxiliary panels off skid, the off-skid installation distance shall refer to the actual cable routing length from each field device to the new control system panels installed in the control room. Solar Turbines recommends keeping the cable length within approximately 35–40 meters to avoid impacts on cable sizing, voltage drop, and signal integrity. Longer distances (maximum 100 meters) may require cable size upgrades, additional engineering analysis, and potential design modifications. Cable glands, cable trays and modification are also under customer scope. IMPORTANT: Engineer team must provide the cable list."
+  },
+  {
+    "group": "260",
+    "index": "260.03",
+    "groupDescription": "START SYSTEM DETAIL",
+    "indexDescription": "Direct Drive AC Motor Starter",
+    "shortDescription": "Direct Drive AC Motor Starter",
+    "longDescription": "Existing starting system will be reused"
+  },
+  {
+    "group": "291_50",
+    "index": "291.21",
+    "groupDescription": "FUEL SYSTEM ENHANCEMENT - GAS",
+    "indexDescription": "120 VDC Gas Fuel Module",
+    "shortDescription": "Partial Gas Fuel System Upgrade",
+    "longDescription": "Please refer to offer section 2.10 Gas Fuel System – Conventional: Site pictures and current P&I shows that: Filter is installed upstream the primary Shut Off Valve (SOV); Both primary and secondary SOVs of latest type (closing time < 200ms) are installed at site; Duplex Pressure Transmitters (required for the new fuel flow control algorithm NDF – Energy Balance) are installed at site; Fuel Control Valve (FCV) is HSDE type, which is not aligned with latest standard and fully supported. Considering the site configuration and the latest control and safety requirements, a limited upgrade replacing the gas fuel line downstream the secondary SOV has been included in this proposal. This upgrade consists in installing the new Fuel Control Valve (FCV) PECC 110VDC type, aligned with the latest standard and fully supported, thus reducing downtime in case of issues. Note: new pressure transmitter to be installed in between the SOVs will be provided as well."
+  },
+  {
+    "group": "296_10",
+    "index": "296.11",
+    "groupDescription": "GAS FUEL OFF-SKID FUEL FILTER AND COALESCER",
+    "indexDescription": "No",
+    "shortDescription": "Gas fuel Off-skid",
+    "longDescription": "The existing external/off-skid gas fuel system will remain the same"
+  },
+  {
+    "group": "425",
+    "index": "425.02",
+    "groupDescription": "INSTRUMENT COMPRESSED AIR SYSTEM",
+    "indexDescription": "Yes",
+    "shortDescription": "Instrument Compressed System - Instrumentation Only",
+    "longDescription": "The instrument compressed air system will remain unchanged. The only adjustment required is to replace the existing pressure switches with a Yokogawa pressure transmitter. For further details, please refer to offer section 2.11 regarding the instrumental compressed air system."
+  },
+  {
+    "group": "510",
+    "index": "510.02",
+    "groupDescription": "CONTROL CONSOLE TYPE",
+    "indexDescription": "Non-EP 1 Bay",
+    "shortDescription": "Off Skid Control Console",
+    "longDescription": "The Control and Auxiliary consoles will be installed off-skid in the customer's control room. Although the standard configuration places these consoles on-skid, the customer has decided to relocate them for reliability purposes, contrary to our recommendation. The exact distance to the customer's control room remains unclear. This matter is also related to package rewiring, as the customer is responsible for providing the cable, while Solar will only supply the cable list. Standard SD is Non-EP 2 Bay but it's not selected in SCOPX."
+  },
+  {
+    "group": "511",
+    "index": "511.01",
+    "groupDescription": "CONTROL CONSOLE LOCATION",
+    "indexDescription": "Off-Skid",
+    "shortDescription": "Off Skid Control Console",
+    "longDescription": "The Control and Auxiliary consoles will be installed off-skid in the customer's control room. Although the standard configuration places these consoles on-skid, the customer has decided to relocate them for reliability purposes, contrary to our recommendation. The exact distance to the customer's control room remains unclear. This matter is also related to package rewiring, as the customer is responsible for providing the cable, while Solar will only supply the cable list."
+  },
+  {
+    "group": "511_500",
+    "index": "511.501",
+    "groupDescription": "AUXILARY PANEL (EE25)",
+    "indexDescription": "Non-EP 1 Bay",
+    "shortDescription": "Off Skid Auxiliary Console",
+    "longDescription": "The Control and Auxiliary consoles will be installed off-skid in the customer's control room. Although the standard configuration places these consoles on-skid, the customer has decided to relocate them for reliability purposes, contrary to our recommendation. The exact distance to the customer's control room remains unclear. This matter is also related to package rewiring, as the customer is responsible for providing the cable, while Solar will only supply the cable list. Standard SD is Non-EP 2 Bay but it's not selected in SCOPX."
+  },
+  {
+    "group": "595",
+    "index": "595.02",
+    "groupDescription": "AC SUPPLY PANEL",
+    "indexDescription": "Yes",
+    "shortDescription": "AC Supply Panel",
+    "longDescription": "The AC Supply Panel will remain unchanged on-skid."
+  },
+  {
+    "group": "620",
+    "index": "620.11",
+    "groupDescription": "VIBRATION MONITORING SYSTEM",
+    "indexDescription": "Rockwell Dynamix",
+    "shortDescription": "Maintain existing XM Dynamic",
+    "longDescription": "Customer has recently done the modification on the vibration monitoring system by removing the old CEMB system and installing the XM Dynamic system. The vibration signals acquisition has been done via 4-20mA signals connected to the Beckhoff I/O modules. Customer has requested to reuse the existing XM Dynamic vibration system, removing it from the existing Auxiliary Panel and re-installing it in the new Auxiliary Panel delivered along with the new control system. To be noted that the XM Dynamic modules cannot be added in the Ethernet loop (Turbotronic 6 control loop), therefore the signal acquisition in the new control system will remain via 4-20mA signal (with new Flex I/O modules)."
+  },
+  {
+    "group": "690",
+    "index": "690.02",
+    "groupDescription": "ENGINE LUBE OIL DRAIN TEMPERATURE MONITORING",
+    "indexDescription": "Engine",
+    "shortDescription": "Package Instrumentation Upgrade",
+    "longDescription": "Please refer to offer section 2.16 Package Instrumentation Upgrade to Yokogawa for the list of the instrument which requires to be modified to Yokogawa or latest OEM standards."
+  },
+  {
+    "group": "755",
+    "index": "755.02",
+    "groupDescription": "HEAT RECOVERY APPLICATION",
+    "indexDescription": "Interface Only",
+    "shortDescription": "TBM WHRS Interface Logic",
+    "longDescription": "Include the TBM WHRS Interface Logic in the software. WHRS Signals Standard Legacy Signals with WHRS are DIP Ignition Enable, Boiler Emergency Stop and DOP Boiler Purge."
+  },
+  {
+    "group": "775",
+    "index": "775.02",
+    "groupDescription": "GENERATOR NEUTRAL GROUNDING RESISTOR",
+    "indexDescription": "Yes",
+    "shortDescription": "NGR Signal Controlled by Generator Protection",
+    "longDescription": "This signal must be wired in the Woodward/SEG generator protection. Generator protection must be configured correctly for this signal. Depending on generator protection firmware, electrical engineer must compile and provide the correct module and file configuration. SOJT 2032 provides information for the configuration. FO-SPE-502 - Generator Protection Settings SEG MCDGV4-2 (for Firmware 3.11a). MO-T-351 - Generator Protection Settings SEG MCDGV4-2 (for firmware 3.7b)."
+  },
+  {
+    "group": "960_00",
+    "index": "960.03",
+    "groupDescription": "BATTERY / CHARGER SYSTEM - 24 VDC BATTERIES",
+    "indexDescription": "Lead Acid - Control and Accessory Power",
+    "shortDescription": "Keep existing battery 24 VDC batteries",
+    "longDescription": "Keep existing battery 24 VDC batteries"
+  },
+  {
+    "group": "961_00",
+    "index": "961.01",
+    "groupDescription": "BATTERY / CHARGER SYSTEM - 24 VDC CHARGER",
+    "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standing Battery Rack",
+    "shortDescription": "Keep existing Battery Charger 24 VDC",
+    "longDescription": "Battery Charger 24 VDC is latest standard and it will be kept"
+  },
+  {
+    "group": "961_100",
+    "index": "961.101",
+    "groupDescription": "BATTERY / CHARGER SYSTEM - 120 VDC CHARGER",
+    "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standing Battery Rack",
+    "shortDescription": "Keep existing Battery Charger 120 VDC",
+    "longDescription": "Battery Charger 120 VDC is latest standard and it will be kept"
+  }
+]
 
