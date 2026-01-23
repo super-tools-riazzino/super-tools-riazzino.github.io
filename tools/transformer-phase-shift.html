@@ -136,8 +136,12 @@
           </p>
       
           <p class="muted">
-            Since the voltmeter gives RMS values, we rebuild the corresponding <strong>sinusoidal waveforms</strong>
-            (balanced 3-phase assumption, so <strong>V<sub>phase</sub> = V<sub>LL</sub>/√3</strong>).
+            Because the measurements are RMS values, each sinusoid is reconstructed using its
+            <strong>peak value</strong>. For a pure sinusoidal waveform:
+            <strong>V<sub>peak</sub> = V<sub>RMS</sub> · √2</strong>.
+            <br>
+            This is why the factor <strong>√2</strong> appears in the expressions of f<sub>1</sub>(t) and f<sub>2</sub>(t):
+            the voltmeter provides RMS values, while the time-domain reconstruction requires peak amplitudes.
           </p>
       
           <div class="eq">
