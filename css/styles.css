@@ -253,18 +253,24 @@ a.link{
   text-underline-offset: 3px;
 }
 
-/* Back pill */
-.crumb-back{
-  display:inline-block;
-  margin-top:.6rem;
-  padding:.4rem .7rem;
+/* Back pill (tool pages) */
+.hero .crumb-back{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  margin: 0 0 10px;          /* spazio sotto, prima del titolo */
+  padding: .45rem .75rem;
+
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.35);
-  background: rgba(0,0,0,.18);
-  color: rgba(255,255,255,.95);
+  border:1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.85);
+
+  color: var(--anthracite);
+  font-weight: 900;
   text-decoration:none;
 }
 
-.crumb-back:hover{
-  background: rgba(0,0,0,.28);
+.hero .crumb-back:hover{
+  background: rgba(255,255,255,1);
 }
