@@ -37,13 +37,6 @@
     .muted { opacity: .85; }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
-    .callout {
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,.12);
-      background: rgba(0,0,0,.03);
-      margin-top: 10px;
-    }
     .warn {
       padding: 10px 12px;
       border-radius: 12px;
@@ -127,13 +120,6 @@
         <div id="outMain" style="font-size: 1.25rem; font-weight: 900; margin-top: 6px;">—</div>
         <div id="outAlt" class="muted" style="margin-top: 6px;"></div>
 
-        <div class="callout">
-          <div class="muted" style="font-weight: 800;">Quick check</div>
-          <div id="sanity" class="muted" style="margin-top: 6px;">
-            Enter values to see feasibility bounds and cos(φ).
-          </div>
-        </div>
-
         <div id="debug" class="mono muted" style="margin-top: 10px;"></div>
       </div>
     </section>
@@ -216,7 +202,6 @@
     const outMain   = document.getElementById("outMain");
     const outAlt    = document.getElementById("outAlt");
     const debug     = document.getElementById("debug");
-    const sanity    = document.getElementById("sanity");
 
     const msgWarn   = document.getElementById("msgWarn");
     const msgErr    = document.getElementById("msgErr");
@@ -225,7 +210,6 @@
       outMain.textContent = "—";
       outAlt.textContent = "";
       debug.textContent = "";
-      sanity.textContent = "Enter values to see feasibility bounds and cos(φ).";
       show(msgWarn, false);
       show(msgErr, false);
     }
@@ -248,8 +232,8 @@
 
       // Validation
       if (!(vB > 0) || !(vA > 0) || !(vP >= 0)) {
-        show(msgErr, true, "Please enter valid RMS voltages: VLL_before > 0, VLL_after > 0, and VL1-L1 ≥ 0.");
         resetOutput();
+        show(msgErr, true, "Please enter valid RMS voltages: VLL_before > 0, VLL_after > 0, and VL1-L1 ≥ 0.");
         return;
       }
 
@@ -278,11 +262,6 @@
         outMain.textContent = `${fmt(phiDeg, 3)} °`;
         outAlt.textContent  = `${fmt(r.phiRad, 6)} rad`;
       }
-
-      // Sanity panel
-      sanity.innerHTML =
-        `<div class="mono">cos(φ) raw = ${fmt(r.cosRaw, 8)} | clamped = ${fmt(r.cosClamped, 8)}</div>` +
-        `<div class="mono" style="margin-top:6px;">Bounds: (Vb−Va)² = ${fmt(feas.left, 4)} | 3·Vp² = ${fmt(feas.mid, 4)} | (Vb+Va)² = ${fmt(feas.right, 4)}</div>`;
 
       // Debug (plain)
       debug.textContent =
