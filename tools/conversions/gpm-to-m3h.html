@@ -1,1 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GPM ↔ m³/h | Super Tools</title>
+  <meta name="description" content="Convert US gallons per minute (GPM) to cubic meters per hour (m³/h) and back, with didactic notes." />
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <script defer src="/js/site.js"></script>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>GPM ↔ m³/h</h1>
+      <p>
+        Convert <strong>US gallons per minute (GPM)</strong> to <strong>cubic meters per hour (m³/h)</strong> (and back).
+        Includes the conversion logic and a short explanation.
+      </p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="card">
+      <div class="grid">
+        <div>
+          <label for="val">Value</label>
+          <input id="val" type="number" inputmode="decimal" step="any" value="100" />
+        </div>
+
+        <div>
+          <label for="dir">Direction</label>
+          <select id="dir">
+            <option value="gpm_to_m3h" selected>GPM → m³/h</option>
+            <option value="m3h_to_gpm">m³/h → GPM</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="dp">Decimals</label>
+          <select id="dp">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn" id="calcBtn">Calculate</button>
+        <button class="btn secondary" id="swapBtn" type="button">Swap</button>
+        <button class="btn secondary" id="resetBtn" type="button">Reset</button>
+      </div>
+
+      <div class="result" id="result" role="status" aria-live="polite">Result: —</div>
+      <div class="hint" id="hint"></div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <h2>Didactic notes (conversion logic)</h2>
+
+      <p>
+        We convert between <strong>volumetric flow rates</strong> using unit factors.
+        The key facts are:
+      </p>
+
+      <ul>
+        <li><strong>1 US gallon</strong> = <code>0.003785411784 m³</code></li>
+        <li><strong>1 hour</strong> = <code>60 minutes</code></li>
+      </ul>
+
+      <p>
+        Since <code>GPM</code> means “gallons per minute” and <code>m³/h</code> means “cubic meters per hour”:
+      </p>
+
+      <ul>
+        <li>
+          <strong>GPM → m³/h</strong><br/>
+          <code>m³/h = GPM × (m³/gal) × 60</code>
+        </li>
+        <li>
+          <strong>m³/h → GPM</strong><br/>
+          <code>GPM = (m³/h) ÷ 60 ÷ (m³/gal)</code>
+        </li>
+      </ul>
+
+      <div class="note">
+        Note: this tool uses <strong>US gallons</strong>. If you ever need <em>Imperial gallons</em>, the factor is different.
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    // ---- Constants ----
+    const US_GAL_TO_M3 = 0.003785411784;  // 1 US gal in m³
+    const MIN_PER_HOUR = 60;
+
+    function roundTo(x, dp){
+      const p = Math.pow(10, dp);
+      return Math.round((x + Number.EPSILON) * p) / p;
+    }
+
+    function format(x, dp){
+      return roundTo(x, dp).toFixed(dp);
+    }
+
+    function calc(){
+      const v = parseFloat($("val").value);
+      const dir = $("dir").value;
+      const dp = parseInt($("dp").value, 10);
+
+      if(!Number.isFinite(v)){
+        $("result").textContent = "Result: enter a valid number.";
+        $("hint").textContent = "";
+        return;
+      }
+
+      let outVal, outUnit;
+
+      if(dir === "gpm_to_m3h"){
+        // m³/h = GPM × (m³/gal) × 60
+        outVal = v * US_GAL_TO_M3 * MIN_PER_HOUR;
+        outUnit = "m³/h";
+        $("hint").innerHTML =
+          `Using <code>m³/h = GPM × 0.003785411784 × 60</code>.`;
+      } else {
+        // GPM = (m³/h) ÷ 60 ÷ (m³/gal)
+        outVal = (v / MIN_PER_HOUR) / US_GAL_TO_M3;
+        outUnit = "GPM";
+        $("hint").innerHTML =
+          `Using <code>GPM = (m³/h ÷ 60) ÷ 0.003785411784</code>.`;
+      }
+
+      $("result").textContent = `Result: ${format(outVal, dp)} ${outUnit}`;
+    }
+
+    function swap(){
+      const dir = $("dir").value;
+      $("dir").value = (dir === "gpm_to_m3h") ? "m3h_to_gpm" : "gpm_to_m3h";
+      calc();
+    }
+
+    function resetForm(){
+      $("val").value = 100;
+      $("dir").value = "gpm_to_m3h";
+      $("dp").value = "2";
+      $("result").textContent = "Result: —";
+      $("hint").textContent = "";
+      calc();
+    }
+
+    $("calcBtn").addEventListener("click", calc);
+    $("swapBtn").addEventListener("click", swap);
+    $("resetBtn").addEventListener("click", resetForm);
+    $("val").addEventListener("keydown", (e) => { if(e.key === "Enter") calc(); });
+
+    // initial
+    calc();
+  </script>
+</body>
+</html>
 
