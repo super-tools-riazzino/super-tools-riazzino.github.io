@@ -124,35 +124,73 @@
       </div>
     </section>
 
-    <details>
-      <summary>Method explanation (derivation)</summary>
-      <div style="margin-top: 12px;">
-        <p class="muted">
-          For a balanced 3-phase system, convert line-to-line to phase: <strong>V<sub>phase</sub> = V<sub>LL</sub>/√3</strong>.
-          The RMS of the difference of two same-frequency sinusoids depends on <strong>cos(φ)</strong>.
-        </p>
-
-        <div class="eq">
-          <div style="font-weight: 800;">Key relationship</div>
-          <div class="mono" style="margin-top: 8px;">
-            3 · V<sub>L1,L1</sub><sup>2</sup> = V<sub>LL,before</sub><sup>2</sup> + V<sub>LL,after</sub><sup>2</sup> − 2 · V<sub>LL,before</sub> · V<sub>LL,after</sub> · cos(φ)
+      <details>
+        <summary>Method explanation (derivation)</summary>
+        <div style="margin-top: 12px;">
+          <p class="muted">
+            The idea is simple: we want to estimate the phase shift <strong>φ</strong> using only three RMS measurements:
+            <strong>V<sub>LL,before</sub></strong>, <strong>V<sub>LL,after</sub></strong>, and <strong>V<sub>L1,L1</sub></strong>.
+            <br>
+            <strong>V<sub>L1,L1</sub></strong> is measured between <strong>L1 (before transformer)</strong> and
+            <strong>L1 (after transformer)</strong>, i.e. the same phase on both sides.
+          </p>
+      
+          <p class="muted">
+            Since the voltmeter gives RMS values, we rebuild the corresponding <strong>sinusoidal waveforms</strong>
+            (balanced 3-phase assumption, so <strong>V<sub>phase</sub> = V<sub>LL</sub>/√3</strong>).
+          </p>
+      
+          <div class="eq">
+            <div style="font-weight: 800;">1) Rebuild the two sinusoids</div>
+            <div class="mono" style="margin-top: 8px;">
+              f<sub>1</sub>(t) = V<sub>LL,before</sub> · √2 · sin(2πft) / √3
+            </div>
+            <div class="mono" style="margin-top: 10px;">
+              f<sub>2</sub>(t) = V<sub>LL,after</sub> · √2 · sin(2πft − φ) / √3
+            </div>
+            <div class="muted" style="margin-top: 10px;">
+              Note: φ is introduced here as an unknown variable and will be solved from the RMS relationship.
+            </div>
           </div>
-          <div class="mono" style="margin-top: 10px;">
-            cos(φ) = ( V<sub>LL,before</sub><sup>2</sup> + V<sub>LL,after</sub><sup>2</sup> − 3 · V<sub>L1,L1</sub><sup>2</sup> ) / ( 2 · V<sub>LL,before</sub> · V<sub>LL,after</sub> )
+      
+          <div class="eq" style="margin-top: 12px;">
+            <div style="font-weight: 800;">2) Take the difference and compute its RMS</div>
+            <div class="mono" style="margin-top: 8px;">
+              f<sub>3</sub>(t) = f<sub>1</sub>(t) − f<sub>2</sub>(t)
+            </div>
+            <div class="muted" style="margin-top: 10px;">
+              The key observation is that the RMS of this difference must match the measured same-phase voltage:
+              <strong>RMS(f<sub>3</sub>) = V<sub>L1,L1</sub></strong>.
+            </div>
           </div>
-          <div class="mono" style="margin-top: 10px;">
-            φ = arccos( cos(φ) )
+      
+          <div class="eq" style="margin-top: 12px;">
+            <div style="font-weight: 800;">3) Solve the RMS equation for φ</div>
+            <div class="muted" style="margin-top: 8px;">
+              For two same-frequency sinusoids, the RMS of the difference depends on <strong>cos(φ)</strong>. After simplification:
+            </div>
+      
+            <div class="mono" style="margin-top: 10px;">
+              3 · V<sub>L1,L1</sub><sup>2</sup> = V<sub>LL,before</sub><sup>2</sup> + V<sub>LL,after</sub><sup>2</sup> − 2 · V<sub>LL,before</sub> · V<sub>LL,after</sub> · cos(φ)
+            </div>
+      
+            <div class="mono" style="margin-top: 10px;">
+              cos(φ) =
+              ( V<sub>LL,before</sub><sup>2</sup> + V<sub>LL,after</sub><sup>2</sup> − 3 · V<sub>L1,L1</sub><sup>2</sup> )
+              / ( 2 · V<sub>LL,before</sub> · V<sub>LL,after</sub> )
+            </div>
+      
+            <div class="mono" style="margin-top: 10px;">
+              φ = arccos( cos(φ) )
+            </div>
+      
+            <div class="muted" style="margin-top: 10px;">
+              This is exactly the computation implemented by the tool.
+            </div>
           </div>
         </div>
+      </details>
 
-        <p class="muted" style="margin-top: 12px;">
-          Feasibility (must be physically possible):
-        </p>
-        <div class="eq mono">
-          (V<sub>LL,before</sub> − V<sub>LL,after</sub>)<sup>2</sup> ≤ 3 · V<sub>L1,L1</sub><sup>2</sup> ≤ (V<sub>LL,before</sub> + V<sub>LL,after</sub>)<sup>2</sup>
-        </div>
-      </div>
-    </details>
   </main>
 
   <div id="site-footer"></div>
