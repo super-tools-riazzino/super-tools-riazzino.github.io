@@ -274,3 +274,8 @@ a.link{
 .hero .crumb-back:hover{
   background: rgba(255,255,255,1);
 }
+.hero .muted{
+  opacity: .75;
+  font-size: .95rem;
+  margin-top: 10px;
+}
