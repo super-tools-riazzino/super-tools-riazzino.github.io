@@ -253,33 +253,6 @@ a.link{
   text-underline-offset: 3px;
 }
 
-/* Breadcrumbs (tool pages) */
-.breadcrumbs{
-  display:flex;
-  align-items:center;
-  gap:.5rem;
-  flex-wrap:wrap;
-  font-size:.95rem;
-  opacity:.95;
-}
-
-/* dentro HERO: forziamo contrasto */
-.hero .breadcrumbs,
-.hero .breadcrumbs a,
-.hero .breadcrumbs .current{
-  color: rgba(255,255,255,.92);
-}
-
-.hero .breadcrumbs a{
-  text-decoration:none;
-  border-bottom:1px solid transparent;
-}
-.hero .breadcrumbs a:hover{
-  border-bottom-color: rgba(255,255,255,.8);
-}
-
-.hero .breadcrumbs .sep{ opacity:.55; }
-
 /* Back pill */
 .crumb-back{
   display:inline-block;
