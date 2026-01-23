@@ -136,12 +136,20 @@
           </p>
       
           <p class="muted">
-            Because the measurements are RMS values, each sinusoid is reconstructed using its
-            <strong>peak value</strong>. For a pure sinusoidal waveform:
+            The input measurements are <strong>line-to-line RMS voltages</strong>, while the waveform reconstruction
+            requires <strong>phase peak values</strong>.
+            <br><br>
+            Two standard conversions are therefore applied:
+            <br>
+            • From <strong>RMS to peak</strong>: for a pure sinusoidal waveform,
             <strong>V<sub>peak</sub> = V<sub>RMS</sub> · √2</strong>.
             <br>
-            This is why the factor <strong>√2</strong> appears in the expressions of f<sub>1</sub>(t) and f<sub>2</sub>(t):
-            the voltmeter provides RMS values, while the time-domain reconstruction requires peak amplitudes.
+            • From <strong>line-to-line to phase voltage</strong>: for a balanced three-phase system,
+            <strong>V<sub>phase</sub> = V<sub>LL</sub> / √3</strong>.
+            <br><br>
+            As a result, the measured line-to-line RMS values are converted into
+            <strong>phase peak amplitudes</strong> using the combined factor
+            <strong>√2 / √3</strong> in the expressions of f<sub>1</sub>(t) and f<sub>2</sub>(t).
           </p>
       
           <div class="eq">
