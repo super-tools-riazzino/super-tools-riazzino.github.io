@@ -22,19 +22,6 @@
     .table-wrap { overflow:auto; border-radius: 14px; border: 1px solid rgba(255,255,255,.10); }
     table { width:100%; border-collapse: collapse; min-width: 920px; }
     th, td { padding: 12px 12px; border-bottom: 1px solid rgba(255,255,255,.08); vertical-align: top; }
-      /* Sticky header: keep column titles visible while scrolling */
-      .table-wrap thead th {
-        position: sticky;
-        top: 0;
-        z-index: 5;
-        background: rgba(20,20,22,.98);      /* stesso “tono” del sito */
-        border-bottom: 1px solid rgba(255,255,255,.14);
-      }
-      
-      /* opzionale: evita che sotto si veda il contenuto mentre scorre */
-      .table-wrap thead tr {
-        background: rgba(20,20,22,.98);
-      }
     th { text-align:left; white-space: nowrap; cursor: pointer; user-select:none; }
     th .sort { opacity:.6; margin-left:6px; font-size:.85em; }
     td code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size:.95em; }
