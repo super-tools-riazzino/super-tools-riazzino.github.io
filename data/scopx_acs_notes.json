@@ -1,5 +1,13 @@
 [
   {
+    "group": "491",
+    "index": "491.02",
+    "groupDescription": "LUBE OIL TANK VENT SEPARATOR",
+    "indexDescription": "Donaldson",
+    "shortDescription": "Original UAS is maintained",
+    "longDescription": "The actual UAS (Electrostatic Filter) is maintained."
+  },
+  {
     "group": "1050",
     "index": "1050.01",
     "groupDescription": "FIRE DETECTION SYSTEM",
