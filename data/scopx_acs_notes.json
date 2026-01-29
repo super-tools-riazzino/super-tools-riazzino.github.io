@@ -152,14 +152,6 @@
     "longDescription": "Please refer to offer section 2.16 Package Instrumentation Upgrade to Yokogawa for the list of the instrument which requires to be modified to Yokogawa or latest OEM standards."
   },
   {
-    "group": "755",
-    "index": "755.02",
-    "groupDescription": "HEAT RECOVERY APPLICATION",
-    "indexDescription": "Interface Only",
-    "shortDescription": "TBM WHRS Interface Logic",
-    "longDescription": "Include the TBM WHRS Interface Logic in the software. WHRS Signals Standard Legacy Signals with WHRS are DIP Ignition Enable, Boiler Emergency Stop and DOP Boiler Purge."
-  },
-  {
     "group": "775",
     "index": "775.02",
     "groupDescription": "GENERATOR NEUTRAL GROUNDING RESISTOR",
