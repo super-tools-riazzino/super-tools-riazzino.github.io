@@ -16,6 +16,22 @@
     "longDescription": "T5 wiring will be Direct Wire."
   },
   {
+    "group": "692",
+    "index": "692.03",
+    "groupDescription": "ENGINE T7 TEMPERATURE MONITORING",
+    "indexDescription": "Isothermal Plate in Existing Housing",
+    "shortDescription": "T7 Direct Wire Connection",
+    "longDescription": "T7 wiring will be Direct Wire."
+  },
+  {
+    "group": "295",
+    "index": "295.01",
+    "groupDescription": "GAS FUEL SKID-EDGE FILTER",
+    "indexDescription": "No",
+    "shortDescription": "No Filter on Skid-Edge",
+    "longDescription": "Gas Fuel Skid-Edge does not have a filter. The filter is installed outside of the package."
+  },
+  {
     "group": "1050",
     "index": "1050.01",
     "groupDescription": "FIRE DETECTION SYSTEM",
