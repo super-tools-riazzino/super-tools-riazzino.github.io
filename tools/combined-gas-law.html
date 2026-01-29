@@ -1,1 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Combined Gas Law (Flow to Nm³/h & Sm³/h)</title>
+  <meta name="description" content="Convert actual gas flow (m³/h) at operating conditions to Normal (0°C) and Standard (15°C) conditions using the Combined Gas Law." />
 
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script defer src="/js/site.js"></script>
+
+  <style>
+    /* Small local tweaks; main styling comes from /css/styles.css */
+    .tool-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+    @media (min-width: 900px){ .tool-grid { grid-template-columns: 1.1fr 0.9fr; } }
+
+    .form { display: grid; gap: 12px; }
+    .row { display: grid; gap: 10px; grid-template-columns: 1fr; }
+    @media (min-width: 520px){ .row { grid-template-columns: 1fr 190px; align-items: center; } }
+
+    label { font-weight: 600; }
+    .hint { font-size: 0.95rem; opacity: 0.8; }
+    input[type="number"]{
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: inherit;
+    }
+    .out{
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-variant-numeric: tabular-nums;
+    }
+    .out strong{ display:block; font-size: 1.15rem; margin-top: 4px; }
+    .note-box{
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .eq { padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); overflow-x:auto; }
+    .mini { font-size: 0.95rem; opacity: 0.9; }
+    .crumb-back { display:inline-block; margin-bottom: 10px; }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <section class="hero">
+    <div class="wrap">
+      <a class="crumb-back" href="/tools/">← Back to Tools</a>
+      <h1>Combined Gas Law</h1>
+      <p>
+        Convert an <strong>actual gas volumetric flow</strong> at operating conditions to:
+        <strong>Nm³/h</strong> (Normal: 0&nbsp;°C) and <strong>Sm³/h</strong> (Standard: 15&nbsp;°C),
+        both at <strong>1.01325 bar(a)</strong>.
+      </p>
+      <p class="muted mini">
+        Assumes ideal gas, same amount of gas (same moles), and dry gas (no water vapor correction).
+      </p>
+    </div>
+  </section>
+
+  <main class="wrap" style="margin-top:18px; margin-bottom:26px;">
+    <div class="tool-grid">
+
+      <!-- LEFT: Explanation -->
+      <section class="card">
+        <div class="tag">Gas / Units</div>
+        <h2 style="margin-top:6px;">Where do the formulas come from?</h2>
+
+        <p>
+          For an ideal gas, the relationship between pressure, volume and temperature (in Kelvin) is:
+        </p>
+
+        <div class="eq mono" aria-label="Combined gas law equation">
+          (P₁ · V₁) / T₁ = (P₂ · V₂) / T₂
+        </div>
+
+        <p>
+          If you keep the same gas amount and move from operating conditions (index 1) to reference conditions
+          (index 2), you can solve for the reference volume:
+        </p>
+
+        <div class="eq mono" aria-label="Rearranged equation">
+          V₂ = V₁ · (P₁ / P₂) · (T₂ / T₁)
+        </div>
+
+        <h3 style="margin-top:16px;">Important unit points</h3>
+
+        <div class="note-box">
+          <ul style="margin: 0 0 0 18px; padding: 0;">
+            <li>
+              <strong>Temperature must be absolute</strong>:<br />
+              <span class="mono">T[K] = T[°C] + 273.15</span>
+            </li>
+            <li style="margin-top:8px;">
+              <strong>Pressure must be absolute</strong>:<br />
+              You enter <span class="mono">P₁</span> in <span class="mono">bar(g)</span> (gauge). To convert:
+              <br />
+              <span class="mono">P₁_abs[bar(a)] = P₁_barg + P_atm_bar(a)</span>
+              <br />
+              where <span class="mono">P_atm</span> is typically around 1013 mbar(a), but can be measured locally.
+            </li>
+            <li style="margin-top:8px;">
+              Reference pressure used here:
+              <span class="mono">P_ref = 1.01325 bar(a)</span>
+            </li>
+            <li style="margin-top:8px;">
+              Reference temperatures:
+              <ul style="margin: 6px 0 0 18px;">
+                <li><strong>Normal</strong>: <span class="mono">0 °C → 273.15 K</span> → <strong>Nm³/h</strong></li>
+                <li><strong>Standard</strong>: <span class="mono">15 °C → 288.15 K</span> → <strong>Sm³/h</strong></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <h3 style="margin-top:16px;">Final conversion (flow)</h3>
+        <p class="mini">
+          If <span class="mono">Q₁</span> is your actual volumetric flow (m³/h) at (P₁, T₁), then:
+        </p>
+
+        <div class="eq mono" aria-label="Flow conversion equations">
+          Qref = Q₁ · (P₁_abs / Pref) · (Tref / T₁_abs)
+        </div>
+
+        <p class="mini muted" style="margin-top:10px;">
+          Note: we keep the label <span class="mono">V₁</span> in the equation, but in practice we apply it to a
+          <strong>flow rate</strong> (m³/h) the same way, because it’s “volume per unit time”.
+        </p>
+      </section>
+
+      <!-- RIGHT: Calculator -->
+      <section class="card">
+        <div class="tag">Calculator</div>
+        <h2 style="margin-top:6px;">Inputs</h2>
+
+        <form class="form" onsubmit="return false;">
+          <div class="row">
+            <div>
+              <label for="p1">P1 (gauge)</label>
+              <div class="hint">bar(g) — operating pressure</div>
+            </div>
+            <input id="p1" type="number" step="0.001" value="20" />
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="t1">T1</label>
+              <div class="hint">°C — operating temperature</div>
+            </div>
+            <input id="t1" type="number" step="0.1" value="50" />
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="q1">Q1 (actual volumetric flow)</label>
+              <div class="hint">m³/h at (P1, T1)</div>
+            </div>
+            <input id="q1" type="number" step="0.01" value="90" />
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="patm">Atmospheric pressure</label>
+              <div class="hint">mbar(a) — used to convert bar(g) → bar(a)</div>
+            </div>
+            <input id="patm" type="number" step="0.1" value="998" />
+          </div>
+
+          <div class="note-box mini">
+            <div><strong>Defaults used</strong></div>
+            <div class="mono">Pref = 1.01325 bar(a)</div>
+            <div class="mono">Tnormal = 273.15 K (0°C)</div>
+            <div class="mono">Tstandard = 288.15 K (15°C)</div>
+          </div>
+
+          <h2 style="margin:10px 0 0;">Results</h2>
+
+          <div class="out" aria-live="polite">
+            Flow (Nm³/h)
+            <strong id="outN">—</strong>
+            <div class="mini muted" id="outNdetail"></div>
+          </div>
+
+          <div class="out" aria-live="polite">
+            Flow (Sm³/h)
+            <strong id="outS">—</strong>
+            <div class="mini muted" id="outSdetail"></div>
+          </div>
+
+          <div class="note-box mini">
+            <strong>Sanity check</strong>
+            <div class="muted">
+              Higher pressure → higher Nm³/h & Sm³/h for the same actual m³/h.<br/>
+              Higher temperature → lower Nm³/h & Sm³/h for the same actual m³/h.
+            </div>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function(){
+      const el = (id) => document.getElementById(id);
+
+      const p1 = el("p1");
+      const t1 = el("t1");
+      const q1 = el("q1");
+      const patm = el("patm");
+
+      const outN = el("outN");
+      const outS = el("outS");
+      const outNdetail = el("outNdetail");
+      const outSdetail = el("outSdetail");
+
+      // Constants
+      const P_REF = 1.01325;     // bar(a)
+      const T_N = 273.15;        // K (0°C)
+      const T_S = 288.15;        // K (15°C)
+
+      function toNumber(x){
+        const n = Number(x);
+        return Number.isFinite(n) ? n : NaN;
+      }
+
+      function fmt(x){
+        if (!Number.isFinite(x)) return "—";
+        return x.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function calc(){
+        const P1_g = toNumber(p1.value);         // bar(g)
+        const T1_c = toNumber(t1.value);         // °C
+        const Q1 = toNumber(q1.value);           // m³/h
+        const Patm_mbar = toNumber(patm.value);  // mbar(a)
+
+        if (![P1_g, T1_c, Q1, Patm_mbar].every(Number.isFinite)){
+          outN.textContent = "—";
+          outS.textContent = "—";
+          outNdetail.textContent = "";
+          outSdetail.textContent = "";
+          return;
+        }
+
+        const Patm_bar = Patm_mbar / 1000.0;     // bar(a)
+        const P1_abs = P1_g + Patm_bar;          // bar(a)
+        const T1_abs = T1_c + 273.15;            // K
+
+        // Qref = Q1 * (P1_abs / Pref) * (Tref / T1_abs)
+        const QN = Q1 * (P1_abs / P_REF) * (T_N / T1_abs);
+        const QS = Q1 * (P1_abs / P_REF) * (T_S / T1_abs);
+
+        outN.textContent = fmt(QN);
+        outS.textContent = fmt(QS);
+
+        outNdetail.textContent = `Using P1_abs=${P1_abs.toFixed(3)} bar(a), T1_abs=${T1_abs.toFixed(2)} K`;
+        outSdetail.textContent = `Using P1_abs=${P1_abs.toFixed(3)} bar(a), T1_abs=${T1_abs.toFixed(2)} K`;
+      }
+
+      [p1, t1, q1, patm].forEach(i => i.addEventListener("input", calc));
+      calc();
+    })();
+  </script>
+</body>
+</html>
