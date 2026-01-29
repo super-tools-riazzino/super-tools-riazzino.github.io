@@ -1,5 +1,53 @@
 [
   {
+    "group": "295",
+    "index": "295.01",
+    "groupDescription": "GAS FUEL SKID-EDGE FILTER",
+    "indexDescription": "No",
+    "shortDescription": "No Filter on Skid-Edge",
+    "longDescription": "Gas Fuel Skid-Edge does not have a filter. The filter is installed outside of the package."
+  },
+  {
+    "group": "491",
+    "index": "491.02",
+    "groupDescription": "LUBE OIL TANK VENT SEPARATOR",
+    "indexDescription": "Donaldson",
+    "shortDescription": "Original UAS is maintained",
+    "longDescription": "The actual UAS (Electrostatic Filter) is maintained."
+  },
+  {
+    "group": "691",
+    "index": "691.03",
+    "groupDescription": "ENGINE T5 TEMPERATURE MONITORING",
+    "indexDescription": "Isothermal Plate in Existing Housing",
+    "shortDescription": "T5 Direct Wire Connection",
+    "longDescription": "T5 wiring will be Direct Wire."
+  },
+  {
+    "group": "692",
+    "index": "692.03",
+    "groupDescription": "ENGINE T7 TEMPERATURE MONITORING",
+    "indexDescription": "Isothermal Plate in Existing Housing",
+    "shortDescription": "T7 Direct Wire Connection",
+    "longDescription": "T7 wiring will be Direct Wire."
+  },
+{
+    "group": "755",
+    "index": "755.03",
+    "groupDescription": "HEAT RECOVERY APPLICATION",
+    "indexDescription": "Interface and Control (WHRS by Solar)",
+    "shortDescription": "WHRS Interface Logic",
+    "longDescription": "Include the TBM WHRS Interface Logic in the software. Standard legacy WHRS signals are DIP Ignition Enable, Boiler Emergency Stop and DOP Boiler Purge. For more details, refer to ES 2803 SAFETY REQUIREMENTS FOR WHRS INTERFACE. Applicable to Power Generation projects."
+  },
+  {
+    "group": "905_30",
+    "index": "905.32",
+    "groupDescription": "VIBRATION MONITORING - GENERATOR VELOCITY SENSORS",
+    "indexDescription": "2 Velocity Sensors",
+    "shortDescription": "Only 1 Velocity Sensor",
+    "longDescription": "Mars 100 TBM legacy generator packages are equipped with only one velocity sensor on the NDE bearing with tag ST4210."
+  }
+  {
     "group": "1050",
     "index": "1050.01",
     "groupDescription": "FIRE DETECTION SYSTEM",
@@ -134,14 +182,6 @@
     "indexDescription": "Engine",
     "shortDescription": "Package Instrumentation Upgrade",
     "longDescription": "Please refer to offer section 2.16 Package Instrumentation Upgrade to Yokogawa for the list of the instrument which requires to be modified to Yokogawa or latest OEM standards."
-  },
-  {
-    "group": "755",
-    "index": "755.02",
-    "groupDescription": "HEAT RECOVERY APPLICATION",
-    "indexDescription": "Interface Only",
-    "shortDescription": "TBM WHRS Interface Logic",
-    "longDescription": "Include the TBM WHRS Interface Logic in the software. WHRS Signals Standard Legacy Signals with WHRS are DIP Ignition Enable, Boiler Emergency Stop and DOP Boiler Purge."
   },
   {
     "group": "775",
