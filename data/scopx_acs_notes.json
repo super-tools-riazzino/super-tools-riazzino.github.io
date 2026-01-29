@@ -8,6 +8,14 @@
     "longDescription": "The actual UAS (Electrostatic Filter) is maintained."
   },
   {
+    "group": "691",
+    "index": "691.03",
+    "groupDescription": "ENGINE T5 TEMPERATURE MONITORING",
+    "indexDescription": "Isothermal Plate in Existing Housing",
+    "shortDescription": "T5 Direct Wire Connection",
+    "longDescription": "T5 wiring will be Direct Wire."
+  },
+  {
     "group": "1050",
     "index": "1050.01",
     "groupDescription": "FIRE DETECTION SYSTEM",
