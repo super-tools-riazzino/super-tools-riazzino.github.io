@@ -32,6 +32,22 @@
     "longDescription": "Gas Fuel Skid-Edge does not have a filter. The filter is installed outside of the package."
   },
   {
+    "group": "755",
+    "index": "755.03",
+    "groupDescription": "HEAT RECOVERY APPLICATION",
+    "indexDescription": "Interface and Control (WHRS by Solar)",
+    "shortDescription": "WHRS Interface Logic",
+    "longDescription": "Include the TBM WHRS Interface Logic in the software. Standard legacy WHRS signals are DIP Ignition Enable, Boiler Emergency Stop and DOP Boiler Purge. For more details, refer to ES 2803 SAFETY REQUIREMENTS FOR WHRS INTERFACE. Applicable to Power Generation projects."
+  },
+  {
+    "group": "905_30",
+    "index": "905.32",
+    "groupDescription": "VIBRATION MONITORING - GENERATOR VELOCITY SENSORS",
+    "indexDescription": "2 Velocity Sensors",
+    "shortDescription": "Only 1 Velocity Sensor",
+    "longDescription": "Mars 100 TBM legacy generator packages are equipped with only one velocity sensor on the NDE bearing with tag ST4210."
+  },
+  {
     "group": "1050",
     "index": "1050.01",
     "groupDescription": "FIRE DETECTION SYSTEM",
