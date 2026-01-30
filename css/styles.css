@@ -295,3 +295,59 @@ a.link{
   border-top: 1px solid rgba(0,0,0,.08);
 }
 
+/* Utilities (global) */
+.util-card { margin-bottom: 18px; }
+
+/* Grid rows for utility forms (do NOT override existing .row) */
+.u-row{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 900px){
+  .u-row.two{ grid-template-columns: 1fr 1fr; }
+  .u-row.three{ grid-template-columns: 1fr 1fr 1fr; }
+}
+
+/* Small action buttons (copy, etc.) */
+.btn-small{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background: var(--muted);
+  color: var(--text);
+  cursor:pointer;
+  font-weight:800;
+  text-decoration:none;
+}
+.btn-small:hover{
+  filter: brightness(0.98);
+}
+
+/* Output box */
+.out{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:8px;
+  align-items:center;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background: var(--muted);
+  margin-top:8px;
+  word-break: break-word;
+}
+.out code{ font-size: 0.95rem; }
+
+/* Optional action row */
+.u-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
