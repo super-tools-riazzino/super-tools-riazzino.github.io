@@ -11,48 +11,6 @@
 
   <!-- Header & Footer loader -->
   <script defer src="/js/site.js"></script>
-
-  <style>
-    /* Small local styles (kept minimal) */
-    .util-card { margin-bottom: 18px; }
-    .util-grid { display: grid; gap: 12px; }
-    .row { display: grid; grid-template-columns: 1fr; gap: 10px; }
-    @media (min-width: 900px) {
-      .row.two { grid-template-columns: 1fr 1fr; }
-      .row.three { grid-template-columns: 1fr 1fr 1fr; }
-    }
-
-    .actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-    .btn-small {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(0,0,0,0.25);
-      color: inherit;
-      cursor: pointer;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .btn-small:hover { background: rgba(0,0,0,0.35); }
-
-    .out {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 8px;
-      align-items: center;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(0,0,0,0.18);
-      margin-top: 8px;
-      word-break: break-word;
-    }
-    .out code { font-size: 0.95rem; }
-    .hint { opacity: 0.75; font-size: 0.95rem; }
-  </style>
 </head>
 
 <body>
@@ -73,7 +31,7 @@
       <h3>Digit → Letter Encoder</h3>
       <p class="hint">Map digits to letters using: 1=A, 2=B, 3=C, 4=D, 5=E, 6=F, 7=G, 8=H, 9=I, 0=L.</p>
 
-      <div class="row">
+      <div class="u-row">
         <div>
           <label for="t1_input">Number (digits only)</label>
           <input id="t1_input" type="text" inputmode="numeric" placeholder="e.g., 00123" />
@@ -94,7 +52,7 @@
       <h3>Naming Convention Builder</h3>
       <p class="hint">Generate folder/file names based on your internal conventions.</p>
 
-      <div class="row three">
+      <div lass="u-row three">
         <div>
           <label for="t2_pkg">Number of packages</label>
           <select id="t2_pkg">
@@ -115,7 +73,7 @@
         </div>
       </div>
 
-      <div class="row two">
+      <div class="u-row two">
         <div>
           <label for="t2_project">Project Name</label>
           <input id="t2_project" type="text" placeholder="e.g., ARCILLA BLANCA" />
@@ -126,14 +84,14 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="u-row">
         <div>
           <label for="t2_scope2">Inquiry Scope 2 (optional)</label>
           <input id="t2_scope2" type="text" placeholder="Optional second scope" />
         </div>
       </div>
 
-      <div class="row three" id="t2_psn_row">
+      <div lass="u-row three" id="t2_psn_row">
         <div>
           <label for="t2_psn1">PSN 1</label>
           <input id="t2_psn1" type="text" placeholder="e.g., 10723T1" />
