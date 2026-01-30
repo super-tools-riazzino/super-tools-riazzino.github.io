@@ -11,16 +11,30 @@
   <script defer src="/js/site.js"></script>
 
   <style>
-    /* Small local tweaks; main styling comes from /css/styles.css */
-    .tool-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
-    @media (min-width: 900px){ .tool-grid { grid-template-columns: 1.1fr 0.9fr; } }
+    /* Layout: top = calculator, bottom = explanation */
+    .stack { display: grid; gap: 18px; }
 
+    /* Calculator grid: desktop 2 columns (inputs left, results right), mobile 1 column */
+    .calc-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+    @media (min-width: 900px){
+      .calc-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Inputs form */
     .form { display: grid; gap: 12px; }
     .row { display: grid; gap: 10px; grid-template-columns: 1fr; }
-    @media (min-width: 520px){ .row { grid-template-columns: 1fr 190px; align-items: center; } }
+    @media (min-width: 520px){
+      .row { grid-template-columns: 1fr 190px; align-items: center; }
+    }
 
     label { font-weight: 600; }
     .hint { font-size: 0.95rem; opacity: 0.8; }
+
     input[type="number"]{
       width: 100%;
       padding: 10px 12px;
@@ -29,6 +43,7 @@
       background: rgba(255,255,255,0.06);
       color: inherit;
     }
+
     .out{
       padding: 12px;
       border-radius: 12px;
@@ -37,12 +52,14 @@
       font-variant-numeric: tabular-nums;
     }
     .out strong{ display:block; font-size: 1.15rem; margin-top: 4px; }
+
     .note-box{
       padding: 12px;
       border-radius: 12px;
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.12);
     }
+
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
     .eq { padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); overflow-x:auto; }
     .mini { font-size: 0.95rem; opacity: 0.9; }
@@ -69,9 +86,82 @@
   </section>
 
   <main class="wrap" style="margin-top:18px; margin-bottom:26px;">
-    <div class="tool-grid">
+    <div class="stack">
 
-      <!-- LEFT: Explanation -->
+      <!-- TOP: Calculator (Inputs + Results) -->
+      <section class="card">
+        <div class="tag">Calculator</div>
+        <h2 style="margin-top:6px;">Inputs &amp; Results</h2>
+
+        <div class="calc-grid">
+          <!-- Inputs -->
+          <form class="form" onsubmit="return false;" aria-label="Combined gas law inputs">
+            <div class="row">
+              <div>
+                <label for="p1">P1 (gauge)</label>
+                <div class="hint">bar(g) — operating pressure</div>
+              </div>
+              <input id="p1" type="number" step="0.001" value="20" />
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="t1">T1</label>
+                <div class="hint">°C — operating temperature</div>
+              </div>
+              <input id="t1" type="number" step="0.1" value="50" />
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="q1">Q1 (actual volumetric flow)</label>
+                <div class="hint">m³/h at (P1, T1)</div>
+              </div>
+              <input id="q1" type="number" step="0.01" value="90" />
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="patm">Atmospheric pressure</label>
+                <div class="hint">mbar(a) — used to convert bar(g) → bar(a)</div>
+              </div>
+              <input id="patm" type="number" step="0.1" value="998" />
+            </div>
+
+            <div class="note-box mini">
+              <div><strong>Defaults used</strong></div>
+              <div class="mono">Pref = 1.01325 bar(a)</div>
+              <div class="mono">Tnormal = 273.15 K (0°C)</div>
+              <div class="mono">Tstandard = 288.15 K (15°C)</div>
+            </div>
+          </form>
+
+          <!-- Results -->
+          <div class="form" aria-label="Combined gas law results">
+            <div class="out" aria-live="polite">
+              Flow (Nm³/h)
+              <strong id="outN">—</strong>
+              <div class="mini muted" id="outNdetail"></div>
+            </div>
+
+            <div class="out" aria-live="polite">
+              Flow (Sm³/h)
+              <strong id="outS">—</strong>
+              <div class="mini muted" id="outSdetail"></div>
+            </div>
+
+            <div class="note-box mini">
+              <strong>Sanity check</strong>
+              <div class="muted">
+                Higher pressure → higher Nm³/h &amp; Sm³/h for the same actual m³/h.<br/>
+                Higher temperature → lower Nm³/h &amp; Sm³/h for the same actual m³/h.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM: Explanation -->
       <section class="card">
         <div class="tag">Gas / Units</div>
         <h2 style="margin-top:6px;">Where do the formulas come from?</h2>
@@ -136,75 +226,6 @@
           Note: we keep the label <span class="mono">V₁</span> in the equation, but in practice we apply it to a
           <strong>flow rate</strong> (m³/h) the same way, because it’s “volume per unit time”.
         </p>
-      </section>
-
-      <!-- RIGHT: Calculator -->
-      <section class="card">
-        <div class="tag">Calculator</div>
-        <h2 style="margin-top:6px;">Inputs</h2>
-
-        <form class="form" onsubmit="return false;">
-          <div class="row">
-            <div>
-              <label for="p1">P1 (gauge)</label>
-              <div class="hint">bar(g) — operating pressure</div>
-            </div>
-            <input id="p1" type="number" step="0.001" value="20" />
-          </div>
-
-          <div class="row">
-            <div>
-              <label for="t1">T1</label>
-              <div class="hint">°C — operating temperature</div>
-            </div>
-            <input id="t1" type="number" step="0.1" value="50" />
-          </div>
-
-          <div class="row">
-            <div>
-              <label for="q1">Q1 (actual volumetric flow)</label>
-              <div class="hint">m³/h at (P1, T1)</div>
-            </div>
-            <input id="q1" type="number" step="0.01" value="90" />
-          </div>
-
-          <div class="row">
-            <div>
-              <label for="patm">Atmospheric pressure</label>
-              <div class="hint">mbar(a) — used to convert bar(g) → bar(a)</div>
-            </div>
-            <input id="patm" type="number" step="0.1" value="998" />
-          </div>
-
-          <div class="note-box mini">
-            <div><strong>Defaults used</strong></div>
-            <div class="mono">Pref = 1.01325 bar(a)</div>
-            <div class="mono">Tnormal = 273.15 K (0°C)</div>
-            <div class="mono">Tstandard = 288.15 K (15°C)</div>
-          </div>
-
-          <h2 style="margin:10px 0 0;">Results</h2>
-
-          <div class="out" aria-live="polite">
-            Flow (Nm³/h)
-            <strong id="outN">—</strong>
-            <div class="mini muted" id="outNdetail"></div>
-          </div>
-
-          <div class="out" aria-live="polite">
-            Flow (Sm³/h)
-            <strong id="outS">—</strong>
-            <div class="mini muted" id="outSdetail"></div>
-          </div>
-
-          <div class="note-box mini">
-            <strong>Sanity check</strong>
-            <div class="muted">
-              Higher pressure → higher Nm³/h &amp; Sm³/h for the same actual m³/h.<br/>
-              Higher temperature → lower Nm³/h &amp; Sm³/h for the same actual m³/h.
-            </div>
-          </div>
-        </form>
       </section>
 
     </div>
