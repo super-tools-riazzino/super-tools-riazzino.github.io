@@ -77,6 +77,18 @@
           <div class="hint" id="outSdetail"></div>
         </div>
 
+        <div class="section-title" style="margin:16px 0 6px;">Formula usata con i tuoi numeri</div>
+        
+        <div class="out">
+          <div><strong>Nm³/h</strong></div>
+          <code id="outNformula">—</code>
+        </div>
+        
+        <div class="out">
+          <div><strong>Sm³/h</strong></div>
+          <code id="outSformula">—</code>
+        </div>
+
         <div class="note">
           <strong>Sanity check</strong><br/>
           Higher pressure → higher Nm³/h &amp; Sm³/h for the same actual m³/h.<br/>
@@ -202,6 +214,28 @@
 
         outNdetail.textContent = `Using P1_abs=${P1_abs.toFixed(3)} bar(a), T1_abs=${T1_abs.toFixed(2)} K`;
         outSdetail.textContent = `Using P1_abs=${P1_abs.toFixed(3)} bar(a), T1_abs=${T1_abs.toFixed(2)} K`;
+    
+        const outNformula = el("outNformula");
+        const outSformula = el("outSformula");
+
+        function fnum(x, d){
+          if (!Number.isFinite(x)) return "—";
+          return x.toFixed(d);
+              }
+              
+              // ...dentro calc(), DOPO aver calcolato QN e QS:
+              const q1s = fnum(Q1, 2);
+              const pabs = fnum(P1_abs, 3);
+              const pref = fnum(P_REF, 5);
+              const tn = fnum(T_N, 2);
+              const ts = fnum(T_S, 2);
+              const t1a = fnum(T1_abs, 2);
+              
+              outNformula.textContent =
+                `QN = ${q1s}*(${pabs}/${pref})*(${tn}/${t1a}) = ${fnum(QN, 2)}`;
+              
+              outSformula.textContent =
+                `QS = ${q1s}*(${pabs}/${pref})*(${ts}/${t1a}) = ${fnum(QS, 2)}`;
       }
 
       [p1, t1, q1, patm].forEach(i => i.addEventListener("input", calc));
