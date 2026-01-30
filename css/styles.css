@@ -190,6 +190,18 @@ code{
   font-weight: 700;
 }
 
+/* Helpers */
+.hidden { display: none !important; }
+
+.error{
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,80,80,0.35);
+  background: rgba(255,80,80,0.10);
+  font-weight: 700;
+}
+
 /* Tool forms */
 label{
   display:block;
