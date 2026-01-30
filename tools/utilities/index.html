@@ -1,1 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Utilities · Super Tools</title>
+  <meta name="description" content="Quick utilities for daily work." />
 
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="../../css/styles.css" />
+
+  <!-- Header & Footer loader -->
+  <script defer src="/js/site.js"></script>
+
+  <style>
+    /* Small local styles (kept minimal) */
+    .util-card { margin-bottom: 18px; }
+    .util-grid { display: grid; gap: 12px; }
+    .row { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    @media (min-width: 900px) {
+      .row.two { grid-template-columns: 1fr 1fr; }
+      .row.three { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    label { display: block; font-weight: 600; margin-bottom: 6px; }
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(0,0,0,0.25);
+      color: inherit;
+      outline: none;
+    }
+    input::placeholder { opacity: 0.6; }
+
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .btn-small {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(0,0,0,0.25);
+      color: inherit;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .btn-small:hover { background: rgba(0,0,0,0.35); }
+
+    .out {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(0,0,0,0.18);
+      margin-top: 8px;
+      word-break: break-word;
+    }
+    .out code { font-size: 0.95rem; }
+    .hint { opacity: 0.75; font-size: 0.95rem; }
+    .error {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,80,80,0.35);
+      background: rgba(255,80,80,0.10);
+    }
+    .hidden { display: none !important; }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <section class="hero">
+    <div class="wrap">
+      <a class="crumb-back" href="/tools/index.html">← Back to Tools</a>
+      <h1>Utilities</h1>
+      <p class="hint">Quick, non-didactic tools for day-to-day work.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+
+    <!-- TOOL 1 -->
+    <div class="card util-card">
+      <div class="tag">Utility</div>
+      <h3>Digit → Letter Encoder</h3>
+      <p class="hint">Map digits to letters using: 1=A, 2=B, 3=C, 4=D, 5=E, 6=F, 7=G, 8=H, 9=I, 0=L.</p>
+
+      <div class="row">
+        <div>
+          <label for="t1_input">Number (digits only)</label>
+          <input id="t1_input" type="text" inputmode="numeric" placeholder="e.g., 00123" />
+        </div>
+      </div>
+
+      <div id="t1_error" class="error hidden"></div>
+
+      <div class="out">
+        <code id="t1_output">—</code>
+        <button class="btn-small" id="t1_copy" type="button">Copy</button>
+      </div>
+    </div>
+
+    <!-- TOOL 2 -->
+    <div class="card util-card">
+      <div class="tag">Utility</div>
+      <h3>Naming Convention Builder</h3>
+      <p class="hint">Generate folder/file names based on your internal conventions.</p>
+
+      <div class="row three">
+        <div>
+          <label for="t2_pkg">Number of packages</label>
+          <select id="t2_pkg">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="t2_inquiry">Inquiry Number</label>
+          <input id="t2_inquiry" type="text" placeholder="e.g., CS-PW26-15456" />
+        </div>
+
+        <div>
+          <label for="t2_rev">Revision number</label>
+          <input id="t2_rev" type="text" placeholder="e.g., 00" />
+        </div>
+      </div>
+
+      <div class="row two">
+        <div>
+          <label for="t2_project">Project Name</label>
+          <input id="t2_project" type="text" placeholder="e.g., ARCILLA BLANCA" />
+        </div>
+        <div>
+          <label for="t2_scope1">Inquiry Scope</label>
+          <input id="t2_scope1" type="text" placeholder="e.g., Control System Upgrade" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="t2_scope2">Inquiry Scope 2 (optional)</label>
+          <input id="t2_scope2" type="text" placeholder="Optional second scope" />
+        </div>
+      </div>
+
+      <div class="row three" id="t2_psn_row">
+        <div>
+          <label for="t2_psn1">PSN 1</label>
+          <input id="t2_psn1" type="text" placeholder="e.g., 10723T1" />
+        </div>
+        <div id="t2_psn2_wrap">
+          <label for="t2_psn2">PSN 2</label>
+          <input id="t2_psn2" type="text" placeholder="e.g., 10723T2" />
+        </div>
+        <div id="t2_psn3_wrap">
+          <label for="t2_psn3">PSN 3</label>
+          <input id="t2_psn3" type="text" placeholder="e.g., 1B155T2" />
+        </div>
+      </div>
+
+      <div id="t2_error" class="error hidden"></div>
+
+      <!-- Outputs -->
+      <div style="margin-top:14px;">
+        <div class="section-title">Outputs</div>
+
+        <div class="out">
+          <code id="t2_out_outlook">Outlook folder: —</code>
+          <button class="btn-small" data-copy="t2_out_outlook" type="button">Copy</button>
+        </div>
+
+        <div class="out">
+          <code id="t2_out_projectfolder">Project folder: —</code>
+          <button class="btn-small" data-copy="t2_out_projectfolder" type="button">Copy</button>
+        </div>
+
+        <div class="out">
+          <code id="t2_out_offer">Offer file: —</code>
+          <button class="btn-small" data-copy="t2_out_offer" type="button">Copy</button>
+        </div>
+
+        <div class="out">
+          <code id="t2_out_price">Price file: —</code>
+          <button class="btn-small" data-copy="t2_out_price" type="button">Copy</button>
+        </div>
+
+        <div style="margin-top:14px;" class="hint">Standard prefix (one per package):</div>
+
+        <div class="out">
+          <code id="t2_out_prefix1">Prefix 1: —</code>
+          <button class="btn-small" data-copy="t2_out_prefix1" type="button">Copy</button>
+        </div>
+
+        <div class="out" id="t2_prefix2_wrap">
+          <code id="t2_out_prefix2">Prefix 2: —</code>
+          <button class="btn-small" data-copy="t2_out_prefix2" type="button">Copy</button>
+        </div>
+
+        <div class="out" id="t2_prefix3_wrap">
+          <code id="t2_out_prefix3">Prefix 3: —</code>
+          <button class="btn-small" data-copy="t2_out_prefix3" type="button">Copy</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    // ---------- shared helpers ----------
+    function showError(el, msg) {
+      if (!msg) { el.classList.add('hidden'); el.textContent = ''; return; }
+      el.textContent = msg;
+      el.classList.remove('hidden');
+    }
+
+    async function copyText(text) {
+      await navigator.clipboard.writeText(text);
+    }
+
+    function trimOrEmpty(v) { return (v || '').trim(); }
+
+    // ---------- TOOL 1 ----------
+    (function initTool1() {
+      const input = document.getElementById('t1_input');
+      const out = document.getElementById('t1_output');
+      const err = document.getElementById('t1_error');
+      const copyBtn = document.getElementById('t1_copy');
+
+      const map = {
+        '0':'L','1':'A','2':'B','3':'C','4':'D',
+        '5':'E','6':'F','7':'G','8':'H','9':'I'
+      };
+
+      function compute() {
+        const raw = input.value;
+        const v = trimOrEmpty(raw);
+
+        if (!v) {
+          showError(err, '');
+          out.textContent = '—';
+          return;
+        }
+
+        if (!/^[0-9]+$/.test(v)) {
+          showError(err, 'Error: digits only (0–9).');
+          out.textContent = '—';
+          return;
+        }
+
+        showError(err, '');
+        let encoded = '';
+        for (const ch of v) encoded += map[ch];
+        out.textContent = encoded; // always uppercase by mapping
+      }
+
+      input.addEventListener('input', compute);
+
+      copyBtn.addEventListener('click', async () => {
+        const text = out.textContent;
+        if (!text || text === '—') return;
+        await copyText(text);
+        copyBtn.textContent = 'Copied';
+        setTimeout(() => copyBtn.textContent = 'Copy', 900);
+      });
+
+      compute();
+    })();
+
+    // ---------- TOOL 2 ----------
+    (function initTool2() {
+      const pkg = document.getElementById('t2_pkg');
+      const inquiry = document.getElementById('t2_inquiry');
+      const project = document.getElementById('t2_project');
+      const rev = document.getElementById('t2_rev');
+      const scope1 = document.getElementById('t2_scope1');
+      const scope2 = document.getElementById('t2_scope2');
+
+      const psn1 = document.getElementById('t2_psn1');
+      const psn2 = document.getElementById('t2_psn2');
+      const psn3 = document.getElementById('t2_psn3');
+
+      const psn2Wrap = document.getElementById('t2_psn2_wrap');
+      const psn3Wrap = document.getElementById('t2_psn3_wrap');
+
+      const err = document.getElementById('t2_error');
+
+      const outOutlook = document.getElementById('t2_out_outlook');
+      const outProjFolder = document.getElementById('t2_out_projectfolder');
+      const outOffer = document.getElementById('t2_out_offer');
+      const outPrice = document.getElementById('t2_out_price');
+
+      const outPrefix1 = document.getElementById('t2_out_prefix1');
+      const outPrefix2 = document.getElementById('t2_out_prefix2');
+      const outPrefix3 = document.getElementById('t2_out_prefix3');
+      const prefix2Wrap = document.getElementById('t2_prefix2_wrap');
+      const prefix3Wrap = document.getElementById('t2_prefix3_wrap');
+
+      function getPSNs(n) {
+        const a = [];
+        const p1 = trimOrEmpty(psn1.value);
+        const p2 = trimOrEmpty(psn2.value);
+        const p3 = trimOrEmpty(psn3.value);
+        if (n >= 1) a.push(p1);
+        if (n >= 2) a.push(p2);
+        if (n >= 3) a.push(p3);
+        return a;
+      }
+
+      function validateAlnum(label, value) {
+        if (!value) return `${label} is required.`;
+        if (!/^[A-Za-z0-9]+$/.test(value)) return `${label} must be alphanumeric (A–Z, 0–9), no spaces.`;
+        return '';
+      }
+
+      function sameRootCompress(psns) {
+        // rule: if all PSNs share the same prefix before the last 2 chars (e.g. 10723T1/T2),
+        // output "ROOT + suffixes joined by _". Otherwise list full PSNs joined by '-'.
+        if (psns.length <= 1) return psns[0] || '';
+
+        // Safety: if any is too short, fallback
+        if (psns.some(p => p.length < 2)) return psns.join('-');
+
+        const bases = psns.map(p => p.slice(0, -2));
+        const allSameBase = bases.every(b => b === bases[0]);
+
+        if (!allSameBase) return psns.join('-');
+
+        const suffixes = psns.map(p => p.slice(-2)); // e.g. T1, T2
+        return bases[0] + suffixes.join('_');
+      }
+
+      function compute() {
+        const n = parseInt(pkg.value, 10);
+
+        // show/hide PSN inputs and prefix outputs based on packages
+        psn2Wrap.classList.toggle('hidden', n < 2);
+        psn3Wrap.classList.toggle('hidden', n < 3);
+
+        prefix2Wrap.classList.toggle('hidden', n < 2);
+        prefix3Wrap.classList.toggle('hidden', n < 3);
+
+        const vInquiry = trimOrEmpty(inquiry.value);
+        const vProject = trimOrEmpty(project.value);
+        const vRev = trimOrEmpty(rev.value);
+        const vScope1 = trimOrEmpty(scope1.value);
+        const vScope2 = trimOrEmpty(scope2.value);
+
+        const psns = getPSNs(n);
+
+        // basic validation (minimal, per tua richiesta debug facile)
+        let e = '';
+        // PSNs alfanumerici obbligatori in base a N
+        e = validateAlnum('PSN 1', psns[0] || '');
+        if (!e && n >= 2) e = validateAlnum('PSN 2', psns[1] || '');
+        if (!e && n >= 3) e = validateAlnum('PSN 3', psns[2] || '');
+
+        // No hard validation for other fields (could be empty while typing),
+        // but if ALL empty we just show placeholders.
+        showError(err, e);
+        if (e) {
+          outOutlook.textContent = 'Outlook folder: —';
+          outProjFolder.textContent = 'Project folder: —';
+          outOffer.textContent = 'Offer file: —';
+          outPrice.textContent = 'Price file: —';
+          outPrefix1.textContent = 'Prefix 1: —';
+          outPrefix2.textContent = 'Prefix 2: —';
+          outPrefix3.textContent = 'Prefix 3: —';
+          return;
+        }
+
+        // Build strings (keep user casing as requested)
+        const psnForOutlook = sameRootCompress(psns);
+
+        const outlookFolder = `${psnForOutlook} - ${vProject}`.trim();
+        outOutlook.textContent = `Outlook folder: ${outlookFolder || '—'}`;
+
+        const scopeJoined = vScope2 ? `${vScope1} + ${vScope2}` : vScope1;
+        const projectFolder = `${vInquiry} - ${scopeJoined}`.trim();
+        outProjFolder.textContent = `Project folder: ${projectFolder || '—'}`;
+
+        // Prefix per package: Project Name-PSN1, Project Name-PSN2,...
+        const pref1 = `${vProject}-${psns[0]}`.trim();
+        outPrefix1.textContent = `Prefix 1: ${pref1 || '—'}`;
+
+        if (n >= 2) {
+          const pref2 = `${vProject}-${psns[1]}`.trim();
+          outPrefix2.textContent = `Prefix 2: ${pref2 || '—'}`;
+        }
+        if (n >= 3) {
+          const pref3 = `${vProject}-${psns[2]}`.trim();
+          outPrefix3.textContent = `Prefix 3: ${pref3 || '—'}`;
+        }
+
+        const revToken = vRev ? `rev${vRev}` : 'rev';
+        const offerFile = `${vInquiry} ${vProject} - Offer - ${vScope1} - ${revToken}`.trim();
+        outOffer.textContent = `Offer file: ${offerFile || '—'}`;
+
+        const priceFile = `${vInquiry} ${vProject} - Price - ${vScope1} - ${revToken}`.trim();
+        outPrice.textContent = `Price file: ${priceFile || '—'}`;
+      }
+
+      // copy buttons
+      document.querySelectorAll('button[data-copy]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const id = btn.getAttribute('data-copy');
+          const el = document.getElementById(id);
+          if (!el) return;
+
+          // remove "Label: " prefix
+          const text = el.textContent.replace(/^[^:]+:\s*/, '').trim();
+          if (!text || text === '—') return;
+
+          await copyText(text);
+          const old = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(() => btn.textContent = old, 900);
+        });
+      });
+
+      // listeners
+      [pkg, inquiry, project, rev, scope1, scope2, psn1, psn2, psn3].forEach(el => {
+        el.addEventListener('input', compute);
+        el.addEventListener('change', compute);
+      });
+
+      compute();
+    })();
+  </script>
+</body>
+</html>
