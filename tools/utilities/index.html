@@ -326,20 +326,44 @@
       }
 
       function sameRootCompress(psns) {
-        // rule: if all PSNs share the same prefix before the last 2 chars (e.g. 10723T1/T2),
-        // output "ROOT + suffixes joined by _". Otherwise list full PSNs joined by '-'.
-        if (psns.length <= 1) return psns[0] || '';
-
-        // Safety: if any is too short, fallback
-        if (psns.some(p => p.length < 2)) return psns.join('-');
-
-        const bases = psns.map(p => p.slice(0, -2));
-        const allSameBase = bases.every(b => b === bases[0]);
-
-        if (!allSameBase) return psns.join('-');
-
-        const suffixes = psns.map(p => p.slice(-2)); // e.g. T1, T2
-        return bases[0] + suffixes.join('_');
+        // Group PSNs by "base" = string without last 2 chars (e.g. 10723 + T1/T2)
+        // Then:
+        // - if a base has multiple entries, compress as BASE + suffixes joined by '_'
+        // - otherwise keep full PSN
+        // Finally join groups with '-'
+      
+        const list = psns.filter(Boolean);
+        if (list.length <= 1) return list[0] || '';
+      
+        // If any PSN too short, fallback to simple join
+        if (list.some(p => p.length < 2)) return list.join('-');
+      
+        const groups = new Map(); // base -> array of full PSNs (in input order)
+        const baseOrder = [];
+      
+        for (const p of list) {
+          const base = p.slice(0, -2);
+          if (!groups.has(base)) {
+            groups.set(base, []);
+            baseOrder.push(base);
+          }
+          groups.get(base).push(p);
+        }
+      
+        const parts = [];
+        for (const base of baseOrder) {
+          const arr = groups.get(base);
+      
+          if (arr.length === 1) {
+            parts.push(arr[0]);
+            continue;
+          }
+      
+          const suffixes = arr.map(p => p.slice(-2)); // e.g. T1, T2
+          parts.push(base + suffixes.join('_'));      // e.g. 10723T1_T2
+        }
+      
+        return parts.join('-');
       }
 
       function compute() {
