@@ -150,6 +150,12 @@
               <div class="mini muted" id="outSdetail"></div>
             </div>
 
+            <div class="note-box mini" aria-live="polite">
+              <strong>Formula usata con i tuoi numeri</strong>
+              <div class="mono" id="formulaN" style="margin-top:6px;"></div>
+              <div class="mono" id="formulaS" style="margin-top:6px;"></div>
+            </div>
+
             <div class="note-box mini">
               <strong>Sanity check</strong>
               <div class="muted">
@@ -246,6 +252,8 @@
       const outS = el("outS");
       const outNdetail = el("outNdetail");
       const outSdetail = el("outSdetail");
+      const formulaN = el("formulaN");
+      const formulaS = el("formulaS");
 
       // Constants
       const P_REF = 1.01325;     // bar(a)
@@ -286,6 +294,20 @@
 
         outN.textContent = fmt(QN);
         outS.textContent = fmt(QS);
+
+        // Mostra la formula con i numeri (e risultato)
+        const Q1s = Q1.toFixed(2);
+        const P1absS = P1_abs.toFixed(3);
+        const PrefS = P_REF.toFixed(5);
+        const TnS = T_N.toFixed(2);
+        const TsS = T_S.toFixed(2);
+        const T1absS = T1_abs.toFixed(2);
+        
+        formulaN.textContent =
+          `QN = ${Q1s} * (${P1absS}/${PrefS}) * (${TnS}/${T1absS}) = ${fmt(QN)} Nm³/h`;
+        
+        formulaS.textContent =
+          `QS = ${Q1s} * (${P1absS}/${PrefS}) * (${TsS}/${T1absS}) = ${fmt(QS)} Sm³/h`;
 
         outNdetail.textContent = `Using P1_abs=${P1_abs.toFixed(3)} bar(a), T1_abs=${T1_abs.toFixed(2)} K`;
         outSdetail.textContent = `Using P1_abs=${P1_abs.toFixed(3)} bar(a), T1_abs=${T1_abs.toFixed(2)} K`;
