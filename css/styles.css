@@ -331,17 +331,29 @@ a.link{
 /* Output box */
 .out{
   display:grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(220px, 320px) 1fr;
   gap:8px;
-  align-items:center;
+  align-items:flex-start;
   padding:10px 12px;
   border-radius:12px;
   border:1px solid var(--border);
   background: var(--muted);
   margin-top:8px;
-  word-break: break-word;
+  min-width: 0;
 }
-.out code{ font-size: 1.15rem; }
+
+.out code{
+  font-size: 1.05rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  min-width: 0;
+}
+
+/* Su schermi piccoli: impila (evita qualsiasi schiacciamento) */
+@media (max-width: 700px){
+  .out{ grid-template-columns: 1fr; }
+}
 
 /* Optional action row */
 .u-actions{
