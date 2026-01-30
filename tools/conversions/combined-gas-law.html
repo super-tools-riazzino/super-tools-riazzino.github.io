@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Combined Gas Law (Flow to Nm³/h & Sm³/h)</title>
+  <title>Combined Gas Law (Flow to Nm³/h &amp; Sm³/h)</title>
   <meta name="description" content="Convert actual gas flow (m³/h) at operating conditions to Normal (0°C) and Standard (15°C) conditions using the Combined Gas Law." />
 
-  <!-- Usa SOLO il CSS globale -->
+  <!-- SOLO CSS globale -->
   <link rel="stylesheet" href="/css/styles.css" />
   <script defer src="/js/site.js"></script>
 </head>
@@ -20,7 +20,8 @@
       <h1>Combined Gas Law</h1>
       <p>
         Convert an <strong>actual gas volumetric flow</strong> at operating conditions to:
-        <strong>Nm³/h</strong> (0&nbsp;°C) and <strong>Sm³/h</strong> (15&nbsp;°C), both at <strong>1.01325 bar(a)</strong>.
+        <strong>Nm³/h</strong> (Normal: 0&nbsp;°C) and <strong>Sm³/h</strong> (Standard: 15&nbsp;°C),
+        both at <strong>1.01325 bar(a)</strong>.
       </p>
       <p class="muted">
         Assumes ideal gas, same amount of gas (same moles), and dry gas (no water vapor correction).
@@ -30,9 +31,9 @@
 
   <main class="wrap">
 
-    <!-- TOP: Inputs + Results affiancati (solo classi globali) -->
+    <!-- TOP: Inputs + Results (sempre sopra) -->
     <div class="grid">
-      <!-- Inputs card -->
+      <!-- Inputs -->
       <section class="card">
         <div class="tag">Calculator</div>
         <h2>Inputs</h2>
@@ -61,7 +62,7 @@
         </div>
       </section>
 
-      <!-- Results card -->
+      <!-- Results -->
       <section class="card">
         <div class="tag">Results</div>
         <h2>Converted flows</h2>
@@ -77,12 +78,6 @@
         </div>
 
         <div class="note">
-          <strong>Formula usata con i tuoi numeri</strong>
-          <div class="hint" id="formulaN"></div>
-          <div class="hint" id="formulaS"></div>
-        </div>
-
-        <div class="note">
           <strong>Sanity check</strong><br/>
           Higher pressure → higher Nm³/h &amp; Sm³/h for the same actual m³/h.<br/>
           Higher temperature → lower Nm³/h &amp; Sm³/h for the same actual m³/h.
@@ -90,26 +85,61 @@
       </section>
     </div>
 
-    <!-- BOTTOM: Explanation (solo classi globali) -->
-    <section class="card" style="margin-top:14px;">
+    <!-- BOTTOM: Spiegazioni (sempre sotto) -->
+    <div class="section-title">Explanation</div>
+
+    <section class="card">
       <div class="tag">Gas / Units</div>
       <h2>Where do the formulas come from?</h2>
 
-      <p>For an ideal gas:</p>
+      <p>
+        For an ideal gas, the relationship between pressure, volume and temperature (in Kelvin) is:
+      </p>
       <div class="out">
         <code>(P₁ · V₁) / T₁ = (P₂ · V₂) / T₂</code>
       </div>
 
-      <p>If you solve for the reference volume:</p>
+      <p>
+        If you keep the same gas amount and move from operating conditions (index 1) to reference conditions (index 2),
+        you can solve for the reference volume:
+      </p>
       <div class="out">
         <code>V₂ = V₁ · (P₁ / P₂) · (T₂ / T₁)</code>
       </div>
 
+      <h2>Important unit points</h2>
+      <ul>
+        <li>
+          <strong>Temperature must be absolute</strong>: <code>T[K] = T[°C] + 273.15</code>
+        </li>
+        <li>
+          <strong>Pressure must be absolute</strong>: you enter <code>P₁</code> as <code>bar(g)</code> (gauge). Convert with:
+          <div class="out"><code>P₁_abs[bar(a)] = P₁_barg + P_atm_bar(a)</code></div>
+          where <code>P_atm</code> is typically around 1013 mbar(a), but can be measured locally.
+        </li>
+        <li>
+          Reference pressure used here: <code>P_ref = 1.01325 bar(a)</code>
+        </li>
+        <li>
+          Reference temperatures:
+          <ul>
+            <li><strong>Normal</strong>: <code>0 °C → 273.15 K</code> → <strong>Nm³/h</strong></li>
+            <li><strong>Standard</strong>: <code>15 °C → 288.15 K</code> → <strong>Sm³/h</strong></li>
+          </ul>
+        </li>
+      </ul>
+
       <h2>Final conversion (flow)</h2>
-      <p class="hint">If <code>Q₁</code> is your actual volumetric flow (m³/h) at (P₁, T₁):</p>
+      <p class="hint">
+        If <code>Q₁</code> is your actual volumetric flow (m³/h) at (<code>P₁</code>, <code>T₁</code>), then:
+      </p>
       <div class="out">
         <code>Qref = Q₁ · (P₁_abs / Pref) · (Tref / T₁_abs)</code>
       </div>
+
+      <p class="hint">
+        Note: we apply the same relationship to a <strong>flow rate</strong> (m³/h) because it’s volume per unit time.
+      </p>
     </section>
 
   </main>
@@ -129,23 +159,22 @@
       const outS = el("outS");
       const outNdetail = el("outNdetail");
       const outSdetail = el("outSdetail");
-      const formulaN = el("formulaN");
-      const formulaS = el("formulaS");
 
-      const P_REF = 1.01325;
-      const T_N = 273.15;
-      const T_S = 288.15;
+      // Constants
+      const P_REF = 1.01325;     // bar(a)
+      const T_N = 273.15;        // K (0°C)
+      const T_S = 288.15;        // K (15°C)
 
       function toNumber(x){
         const n = Number(x);
         return Number.isFinite(n) ? n : NaN;
       }
+
       function fmt(x){
         if (!Number.isFinite(x)) return "—";
         return x.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       }
 
-      // <-- QUI il tuo calc() IDENTICO
       function calc(){
         const P1_g = toNumber(p1.value);         // bar(g)
         const T1_c = toNumber(t1.value);         // °C
@@ -157,8 +186,6 @@
           outS.textContent = "—";
           outNdetail.textContent = "";
           outSdetail.textContent = "";
-          formulaN.textContent = "";
-          formulaS.textContent = "";
           return;
         }
 
@@ -166,24 +193,12 @@
         const P1_abs = P1_g + Patm_bar;          // bar(a)
         const T1_abs = T1_c + 273.15;            // K
 
+        // Qref = Q1 * (P1_abs / Pref) * (Tref / T1_abs)
         const QN = Q1 * (P1_abs / P_REF) * (T_N / T1_abs);
         const QS = Q1 * (P1_abs / P_REF) * (T_S / T1_abs);
 
         outN.textContent = fmt(QN);
         outS.textContent = fmt(QS);
-
-        const Q1s = Q1.toFixed(2);
-        const P1absS = P1_abs.toFixed(3);
-        const PrefS = P_REF.toFixed(5);
-        const TnS = T_N.toFixed(2);
-        const TsS = T_S.toFixed(2);
-        const T1absS = T1_abs.toFixed(2);
-
-        formulaN.textContent =
-          `QN = ${Q1s} * (${P1absS}/${PrefS}) * (${TnS}/${T1absS}) = ${fmt(QN)} Nm³/h`;
-
-        formulaS.textContent =
-          `QS = ${Q1s} * (${P1absS}/${PrefS}) * (${TsS}/${T1absS}) = ${fmt(QS)} Sm³/h`;
 
         outNdetail.textContent = `Using P1_abs=${P1_abs.toFixed(3)} bar(a), T1_abs=${T1_abs.toFixed(2)} K`;
         outSdetail.textContent = `Using P1_abs=${P1_abs.toFixed(3)} bar(a), T1_abs=${T1_abs.toFixed(2)} K`;
