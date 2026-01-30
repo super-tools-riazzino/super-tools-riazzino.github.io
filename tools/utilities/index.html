@@ -64,14 +64,6 @@
     }
     .out code { font-size: 0.95rem; }
     .hint { opacity: 0.75; font-size: 0.95rem; }
-    .error {
-      margin-top: 8px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,80,80,0.35);
-      background: rgba(255,80,80,0.10);
-    }
-    .hidden { display: none !important; }
   </style>
 </head>
 
@@ -326,21 +318,13 @@
       }
 
       function sameRootCompress(psns) {
-        // Group PSNs by "base" = string without last 2 chars (e.g. 10723 + T1/T2)
-        // Then:
-        // - if a base has multiple entries, compress as BASE + suffixes joined by '_'
-        // - otherwise keep full PSN
-        // Finally join groups with '-'
-      
         const list = psns.filter(Boolean);
         if (list.length <= 1) return list[0] || '';
-      
-        // If any PSN too short, fallback to simple join
         if (list.some(p => p.length < 2)) return list.join('-');
-      
-        const groups = new Map(); // base -> array of full PSNs (in input order)
+
+        const groups = new Map();
         const baseOrder = [];
-      
+
         for (const p of list) {
           const base = p.slice(0, -2);
           if (!groups.has(base)) {
@@ -349,27 +333,21 @@
           }
           groups.get(base).push(p);
         }
-      
+
         const parts = [];
         for (const base of baseOrder) {
           const arr = groups.get(base);
-      
-          if (arr.length === 1) {
-            parts.push(arr[0]);
-            continue;
-          }
-      
-          const suffixes = arr.map(p => p.slice(-2)); // e.g. T1, T2
-          parts.push(base + suffixes.join('_'));      // e.g. 10723T1_T2
+          if (arr.length === 1) { parts.push(arr[0]); continue; }
+          const suffixes = arr.map(p => p.slice(-2));
+          parts.push(base + suffixes.join('_'));
         }
-      
+
         return parts.join('-');
       }
 
       function compute() {
         const n = parseInt(pkg.value, 10);
 
-        // show/hide PSN inputs and prefix outputs based on packages
         psn2Wrap.classList.toggle('hidden', n < 2);
         psn3Wrap.classList.toggle('hidden', n < 3);
 
@@ -384,15 +362,11 @@
 
         const psns = getPSNs(n);
 
-        // basic validation (minimal, per tua richiesta debug facile)
         let e = '';
-        // PSNs alfanumerici obbligatori in base a N
         e = validateAlnum('PSN 1', psns[0] || '');
         if (!e && n >= 2) e = validateAlnum('PSN 2', psns[1] || '');
         if (!e && n >= 3) e = validateAlnum('PSN 3', psns[2] || '');
 
-        // No hard validation for other fields (could be empty while typing),
-        // but if ALL empty we just show placeholders.
         showError(err, e);
         if (e) {
           outOutlook.textContent = 'Outlook folder: —';
@@ -405,7 +379,6 @@
           return;
         }
 
-        // Build strings (keep user casing as requested)
         const psnForOutlook = sameRootCompress(psns);
 
         const outlookFolder = `${psnForOutlook} - ${vProject}`.trim();
@@ -415,7 +388,6 @@
         const projectFolder = `${vInquiry} - ${scopeJoined}`.trim();
         outProjFolder.textContent = `Project folder: ${projectFolder || '—'}`;
 
-        // Prefix per package: Project Name-PSN1, Project Name-PSN2,...
         const pref1 = `${vProject}-${psns[0]}`.trim();
         outPrefix1.textContent = `Prefix 1: ${pref1 || '—'}`;
 
@@ -436,14 +408,12 @@
         outPrice.textContent = `Price file: ${priceFile || '—'}`;
       }
 
-      // copy buttons
       document.querySelectorAll('button[data-copy]').forEach(btn => {
         btn.addEventListener('click', async () => {
           const id = btn.getAttribute('data-copy');
           const el = document.getElementById(id);
           if (!el) return;
 
-          // remove "Label: " prefix
           const text = el.textContent.replace(/^[^:]+:\s*/, '').trim();
           if (!text || text === '—') return;
 
@@ -454,7 +424,6 @@
         });
       });
 
-      // listeners
       [pkg, inquiry, project, rev, scope1, scope2, psn1, psn2, psn3].forEach(el => {
         el.addEventListener('input', compute);
         el.addEventListener('change', compute);
