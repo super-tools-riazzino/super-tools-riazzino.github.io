@@ -208,6 +208,14 @@
     "longDescription": "Battery Charger 24 VDC is latest standard and it will be kept"
   },
   {
+    "group": "1060_10",
+    "index": "1060.11",
+    "groupDescription": "FIRE SUPPRESSION SYSTEM DETAIL",
+    "indexDescription": "CO2 System (Main / Extended)",
+    "shortDescription": "CO2 System Main Only",
+    "longDescription": "On Turbomach Legacy package the configuration for CO2 system is only with Main. Extended isn't present"
+  },
+  {
     "group": "961_100",
     "index": "961.101",
     "groupDescription": "BATTERY / CHARGER SYSTEM - 120 VDC CHARGER",
