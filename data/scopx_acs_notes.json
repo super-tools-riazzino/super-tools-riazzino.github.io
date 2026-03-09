@@ -198,7 +198,7 @@
 {
     "group": "279",
     "index": "279.01",
-    "groupDescription": FUEL SYSTEM TYPE"",
+    "groupDescription": "FUEL SYSTEM TYPE",
     "indexDescription": "Gas Fuel",
     "shortDescription": "Low BTU Gas Fuel Line",
     "longDescription": "The engine is conventional low BTU. The gas line is designed with 2 main FCV PECC HF 110vdc. Full INTERNAL gas line replacement is included in the scope of supply. "
@@ -207,7 +207,7 @@
   {
     "group": "280",
     "index": "280.01",
-    "groupDescription": FUEL SYSTEM TYPE DETAIL"",
+    "groupDescription": "FUEL SYSTEM TYPE DETAIL",
     "indexDescription": "Natural Gas",
     "shortDescription": "Low BTU Gas Fuel Line",
     "longDescription": "The engine is conventional low BTU. The gas line is designed with 2 main FCV PECC HF 110vdc. Full INTERNAL gas line replacement is included in the scope of supply. "
@@ -216,7 +216,7 @@
   {
     "group": "18_103",
     "index": "18.1031",
-    "groupDescription": ENCLOSURE VENTILATION SYSTEM"",
+    "groupDescription": "ENCLOSURE VENTILATION SYSTEM",
     "indexDescription": "In Scope",
     "shortDescription": "Standard TBM configuration",
     "longDescription": "2 fan IN / 2 fan OUT. Ventilation Current transmitters must be installed as per TBM standatd configuration. "
@@ -224,7 +224,7 @@
   {
     "group": "1030",
     "index": "1030.02",
-    "groupDescription": " ENCLOSURE VENTILATION FAN",
+    "groupDescription": "ENCLOSURE VENTILATION FAN",
     "indexDescription": "AC Motor Driven",
     "shortDescription": "Fans Replacement",
     "longDescription": "4 new fans assembly are included in the scope of supply (2in, 2out). Drop-in replacement"
@@ -232,10 +232,10 @@
  
  
   {
-    "group": "18_382", (400 and 410)
-    "index": "18.3821", (400.04 and 410.03)
-    "groupDescription": " LUBE OIL SYSTEM - PRE POST", (PRE / POST LUBE OIL PUMP and POST LUBE BACKUP PUMP)
-    "indexDescription": "In Scope", (24 VDC Motor Driven and 24 VDC Motor Driven)
+    "group": "18_382"
+    "index": "18.3821"
+    "groupDescription": "LUBE OIL SYSTEM - PRE POST"
+    "indexDescription": "In Scope"
     "shortDescription": "New Lube Oil Pump 24VDC",
     "longDescription": "Standard TBM legacy design: only one 24vdc pump used as a pre-post and backup. A new 24vdc lube oil pump is included in the scope of supply  (drop-in replacement)"
   },
@@ -243,7 +243,7 @@
   {
     "group": "380",
     "index": "380.03",
-    "groupDescription": " ENGINE MAIN LUBE OIL PUMP",
+    "groupDescription": "ENGINE MAIN LUBE OIL PUMP",
     "indexDescription": "Engine Driven",
     "shortDescription": "New Mechanical Pump ",
     "longDescription": "A new main lube oil pump is included in the scope of supply (drop-in replacement)."
@@ -252,7 +252,7 @@
   {
     "group": "18_559",
     "index": "18.5591",
-    "groupDescription": " ELECTROSTATIC OIL DEMISTER",
+    "groupDescription": "ELECTROSTATIC OIL DEMISTER",
     "indexDescription": "In Scope",
     "shortDescription": "UAS - LÜFTUNG",
     "longDescription": "New UAS - LÜFTUNG Like for Like replacement (Engineering will check Left-to-Right or Right-to-Left)"
