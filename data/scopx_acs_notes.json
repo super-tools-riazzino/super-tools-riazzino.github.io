@@ -25,7 +25,7 @@
   },
   {
     "group": "295",
-    "index": "295.01_A",
+    "index": "295.01",
     "groupDescription": "GAS FUEL SKID-EDGE FILTER",
     "indexDescription": "No",
     "shortDescription": "No Filter on Skid-Edge",
@@ -34,7 +34,7 @@
 
   {
     "group": "295",
-    "index": "295.01_B",
+    "index": "295.01",
     "groupDescription": "GAS FUEL SKID-EDGE FILTER",
     "indexDescription": "No",
     "shortDescription": "External Gas Line",
@@ -221,7 +221,7 @@
   },
   {
     "group": "961_00",
-    "index": "961.01_A",
+    "index": "961.01",
     "groupDescription": "BATTERY / CHARGER SYSTEM - 24 VDC CHARGER",
     "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standing Battery Rack",
     "shortDescription": "Keep existing Battery Charger 24 VDC",
@@ -230,7 +230,7 @@
 
   {
     "group": "961_00",
-    "index": "961.01_B",
+    "index": "961.01",
     "groupDescription": "BATTERY / CHARGER SYSTEM - 24 VDC CHARGER",
     "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standi",
     "shortDescription": "Eltek Flatpack-S",
