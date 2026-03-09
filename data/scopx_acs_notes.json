@@ -227,6 +227,7 @@
     "indexDescription": "In Scope",
     "shortDescription": "Standard TBM configuration",
     "longDescription": "2 fan IN / 2 fan OUT. Ventilation Current transmitters must be installed as per TBM standatd configuration. "
+  },
  
   {
     "group": "1030",
@@ -239,10 +240,10 @@
  
  
   {
-    "group": "18_382"
-    "index": "18.3821"
-    "groupDescription": "LUBE OIL SYSTEM - PRE POST"
-    "indexDescription": "In Scope"
+    "group": "18_382",
+    "index": "18.3821",
+    "groupDescription": "LUBE OIL SYSTEM - PRE POST",
+    "indexDescription": "In Scope",
     "shortDescription": "New Lube Oil Pump 24VDC",
     "longDescription": "Standard TBM legacy design: only one 24vdc pump used as a pre-post and backup. A new 24vdc lube oil pump is included in the scope of supply  (drop-in replacement)"
   },
