@@ -25,12 +25,22 @@
   },
   {
     "group": "295",
-    "index": "295.01",
+    "index": "295.01_A",
     "groupDescription": "GAS FUEL SKID-EDGE FILTER",
     "indexDescription": "No",
     "shortDescription": "No Filter on Skid-Edge",
     "longDescription": "Gas Fuel Skid-Edge does not have a filter. The filter is installed outside of the package."
   },
+
+  {
+    "group": "295",
+    "index": "295.01_B",
+    "groupDescription": "GAS FUEL SKID-EDGE FILTER",
+    "indexDescription": "No",
+    "shortDescription": "External Gas Line",
+    "longDescription": "External Gas Line is not included. External PSs will be replaced with Pressure Transmitter"
+  },
+  
   {
     "group": "755",
     "index": "755.03",
@@ -201,12 +211,22 @@
   },
   {
     "group": "961_00",
-    "index": "961.01",
+    "index": "961.01_A",
     "groupDescription": "BATTERY / CHARGER SYSTEM - 24 VDC CHARGER",
     "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standing Battery Rack",
     "shortDescription": "Keep existing Battery Charger 24 VDC",
     "longDescription": "Battery Charger 24 VDC is latest standard and it will be kept"
   },
+
+  {
+    "group": "961_00",
+    "index": "961.01_B",
+    "groupDescription": "BATTERY / CHARGER SYSTEM - 24 VDC CHARGER",
+    "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standi",
+    "shortDescription": "Eltek Flatpack-S",
+    "longDescription": "Replacement of the 24Vdc battery charger with the Eltek Flatpack-S"
+  },
+  
   {
     "group": "1060_10",
     "index": "1060.11",
@@ -321,22 +341,7 @@
   "shortDescription": "New Level Trasmitter",
   "longDescription": "A new level transmitter is included and installed on the existing system as TBM Legacy Standard"
 },
-{
-  "group": "295",
-  "index": "295.01",
-  "groupDescription": "GAS FUEL SKID-EDGE FILTER",
-  "indexDescription": "No",
-  "shortDescription": "External Gas Line",
-  "longDescription": "External Gas Line is not included. External PSs will be replaced with Pressure Transmitter"
-},
-{
-  "group": "961_00",
-  "index": "961.01",
-  "groupDescription": "BATTERY / CHARGER SYSTEM - 24 VDC CHARGER",
-  "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standi",
-  "shortDescription": "Eltek Flatpack-S",
-  "longDescription": "Replacement of the 24Vdc battery charger with the Eltek Flatpack-S"
-},
+
 {
   "group": "961_100",
   "index": "961.101",
