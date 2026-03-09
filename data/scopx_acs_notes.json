@@ -230,5 +230,135 @@
     "indexDescription": "Test Index Description",
     "shortDescription": "Test Short Description",
     "longDescription": "Test Long Description"
-  }
+  },
+
+
+{
+  "group": "279",
+  "index": "279.01",
+  "groupDescription": "FUEL SYSTEM TYPE",
+  "indexDescription": "Gas Fuel",
+  "shortDescription": "Low BTU Gas Fuel Line",
+  "longDescription": "The engine is conventional low BTU. The gas line is designed with 2 main FCV PECC HF 110vdc. Full INTERNAL gas line replacement is included in the scope of supply."
+},
+{
+  "group": "280",
+  "index": "280.01",
+  "groupDescription": "FUEL SYSTEM TYPE DETAIL",
+  "indexDescription": "Natural Gas",
+  "shortDescription": "Low BTU Gas Fuel Line",
+  "longDescription": "The engine is conventional low BTU. The gas line is designed with 2 main FCV PECC HF 110vdc. Full INTERNAL gas line replacement is included in the scope of supply."
+},
+{
+  "group": "18_103",
+  "index": "18.1031",
+  "groupDescription": "ENCLOSURE VENTILATION SYSTEM",
+  "indexDescription": "In Scope",
+  "shortDescription": "Standard TBM configuration",
+  "longDescription": "2 fan IN / 2 fan OUT. Ventilation Current transmitters must be installed as per TBM standatd configuration."
+},
+{
+  "group": "1030",
+  "index": "1030.02",
+  "groupDescription": "ENCLOSURE VENTILATION FAN",
+  "indexDescription": "AC Motor Driven",
+  "shortDescription": "Fans Replacement",
+  "longDescription": "4 new fans assembly are included in the scope of supply (2in, 2out). Drop-in replacement"
+},
+{
+  "group": "18_382",
+  "index": "18.3821",
+  "groupDescription": "LUBE OIL SYSTEM - PRE POST",
+  "indexDescription": "In Scope",
+  "shortDescription": "New Lube Oil Pump 24VDC",
+  "longDescription": "Standard TBM legacy design: only one 24vdc pump used as a pre-post and backup. A new 24vdc lube oil pump is included in the scope of supply (drop-in replacement)"
+},
+{
+  "group": "380",
+  "index": "380.03",
+  "groupDescription": "ENGINE MAIN LUBE OIL PUMP",
+  "indexDescription": "Engine Driven",
+  "shortDescription": "New Mechanical Pump",
+  "longDescription": "A new main lube oil pump is included in the scope of supply (drop-in replacement)."
+},
+{
+  "group": "18_559",
+  "index": "18.5591",
+  "groupDescription": "ELECTROSTATIC OIL DEMISTER",
+  "indexDescription": "In Scope",
+  "shortDescription": "UAS - LÜFTUNG",
+  "longDescription": "New UAS - LÜFTUNG Like for Like replacement (Engineering will check Left-to-Right or Right-to-Left)"
+},
+{
+  "group": "440",
+  "index": "440.03",
+  "groupDescription": "LUBE OIL COOLER FAN QUANTITY",
+  "indexDescription": "2",
+  "shortDescription": "Lube Oil Cooler Fans",
+  "longDescription": "Important: To be confirm during the site survey"
+},
+{
+  "group": "480",
+  "index": "480.02",
+  "groupDescription": "LUBE OIL TANK TEMPERATURE SENSING",
+  "indexDescription": "Switch",
+  "shortDescription": "TBM Lube Oil Heater",
+  "longDescription": "TBM standard lube oil heater equipped with internal temperature switch (TS3420). The heater logic must remain unchanged considering the current configuration (according to TTS4 logic)."
+},
+{
+  "group": "481",
+  "index": "481.03",
+  "groupDescription": "LUBE OIL TANK PRESSURE SENSING",
+  "indexDescription": "Transmitter (AL and SD)",
+  "shortDescription": "New Pressure Trasmitter",
+  "longDescription": "PS3415 is replaced with a Pressure Transmitter"
+},
+{
+  "group": "482_100",
+  "index": "482.103",
+  "groupDescription": "LUBE OIL TANK LEVEL SENSING",
+  "indexDescription": "Transmitter",
+  "shortDescription": "New Level Trasmitter",
+  "longDescription": "A new level transmitter is included and installed on the existing system as TBM Legacy Standard"
+},
+{
+  "group": "295",
+  "index": "295.01",
+  "groupDescription": "GAS FUEL SKID-EDGE FILTER",
+  "indexDescription": "No",
+  "shortDescription": "External Gas Line",
+  "longDescription": "External Gas Line is not included. External PSs will be replaced with Pressure Transmitter"
+},
+{
+  "group": "961_00",
+  "index": "961.01",
+  "groupDescription": "BATTERY / CHARGER SYSTEM - 24 VDC CHARGER",
+  "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standi",
+  "shortDescription": "Eltek Flatpack-S",
+  "longDescription": "Replacement of the 24Vdc battery charger with the Eltek Flatpack-S"
+},
+{
+  "group": "961_100",
+  "index": "961.101",
+  "groupDescription": "BATTERY / CHARGER SYSTEM - 120 VDC CHARGER",
+  "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standi",
+  "shortDescription": "Eltek Flatpack-S",
+  "longDescription": "Replacement of the 110Vdc battery charger with the Eltek Flatpack 2"
+},
+{
+  "group": "2130",
+  "index": "2130.04",
+  "groupDescription": "DRAWING",
+  "indexDescription": "Standard / As-Installed / Cause and Effect Drawings",
+  "shortDescription": "French",
+  "longDescription": "As for the TTS4 ALL DRAWING MUST BE IN FRENCH"
+},
+{
+  "group": "960_100",
+  "index": "960.101",
+  "groupDescription": "BATTERY / CHARGER SYSTEM - 120 VDC BATTERIES",
+  "indexDescription": "No",
+  "shortDescription": "120 vdc Batteries",
+  "longDescription": "120 VDC batteries are included in scope of supply"
+}
 ]
