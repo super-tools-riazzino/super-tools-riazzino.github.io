@@ -153,6 +153,16 @@
     "shortDescription": "Off Skid Control Console",
     "longDescription": "The Control and Auxiliary consoles will be installed off-skid in the customer's control room. Although the standard configuration places these consoles on-skid, the customer has decided to relocate them for reliability purposes, contrary to our recommendation. The exact distance to the customer's control room remains unclear. This matter is also related to package rewiring, as the customer is responsible for providing the cable, while Solar will only supply the cable list. Standard SD is Non-EP 2 Bay but it's not selected in SCOPX."
   },
+
+  {
+    "group": "510",
+    "index": "510.02",
+    "groupDescription": "CONTROL CONSOLE TYPE",
+    "indexDescription": "Non-EP 1 Bay",
+    "shortDescription": "Off Skid Control Console",
+    "longDescription": "The new Control Panel will be installed in the customer control room (limited space, see site survey pictures). New auxiliary panel will installed close to generator exciter (same position of as-is). Engigneering needs to define is XT 402 will be maintained or integrated in new auxiliary panel."
+  },
+  
   {
     "group": "511",
     "index": "511.01",
