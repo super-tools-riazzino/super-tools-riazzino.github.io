@@ -387,8 +387,41 @@
   },
 
  {
-    "group": "5001",
-    "index": "5001.01",
+    "group": "5004",
+    "index": "5004.01",
+    "groupDescription": "ADDER FOR TUV ADDITIONAL INSTRUMENTATION AND DOCUMENTATION",
+    "indexDescription": "In Scope",
+    "shortDescription": "Additional Instrumentation and Documentation (e.g matching TUEV Nord minimum requirement)",
+    "longDescription": "Contorl Panel: - CENTRAL UNIT (SAFETY), GuardLogix Safety PARTNER (STCH PN 27000162) - COST Maintained as "contingency" 
+Air Compressed System
+- PRESSURE TRANSMITTER – PT6411 (Solar PN 1109803-74)
+Gas Fuel System:
+- PRESSURE TRANSMITTER – PT2122 (Solar PN 1109803-74)
+Exhaust System:
+-PRESSURE TRANSMITTER – PT1171 (Solar PN 1109805-1)
+Engineering Services:
+It is customer responsibility to engage local authorities (TÜV, …) in an early stage of the
+project to clarify Solar’s design. Solar’s engineering team will be supporting the discussion
+delivering a standard set of project specific documentation, including:
+- Turbotronic 5 Safety Shut Down Matrix;
+- Safety Integrity Level (SIL) evaluation of critical Gas Turbine package safety functions;
+- Electrical schematics, Mechanical drawings and P&I related to safety functions;
+- .pdf printout of the Safety Tasks of the control logic;
+- datasheet and certification of components part of a safety loop."
+  },
+
+ {
+    "group": "5003",
+    "index": "5003.01",
+    "groupDescription": "POWERFLEX 753 - ETHERNET DLR COMM CARD",
+    "indexDescription": "In Scope",
+    "shortDescription": "PowerFlex 753 DLR Card",
+    "longDescription": "At this moment, the control system is Turbotronic 4; therefore, a ControlNet card is installed in the PowerFlex 753. This card must be replaced with an Ethernet DLR communication card. For reference only (to be verified by Engineering), the part number is 1104894-4."
+  },
+  
+ {
+    "group": "5002",
+    "index": "5002.01",
     "groupDescription": "USER DEFINED SYSTEM 1 STANDARD PRICING",
     "indexDescription": "In Scope",
     "shortDescription": "Power Uprate Package Adaptation",
@@ -396,8 +429,8 @@
   },
  
 {
-    "group": "5002",
-    "index": "5002.01",
+    "group": "5001",
+    "index": "5001.01",
     "groupDescription": "USER DEFINED SYSTEM 1 STANDARD PRICING",
     "indexDescription": "In Scope",
     "shortDescription": "Generator Power Limitation",
