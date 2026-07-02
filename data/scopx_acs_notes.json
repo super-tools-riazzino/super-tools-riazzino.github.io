@@ -403,6 +403,15 @@
     "shortDescription": "PowerFlex 753 DLR Card",
     "longDescription": "At this moment, the control system is Turbotronic 4; therefore, a ControlNet card is installed in the PowerFlex 753. This card must be replaced with an Ethernet DLR communication card. For reference only (to be verified by Engineering), the part number is 1104894-4."
   },
+
+ {
+    "group": "5003",
+    "index": "5003.01",
+    "groupDescription": "USER DEFINED SYSTEM 1 STANDARD PRICING",
+    "indexDescription": "In Scope",
+    "shortDescription": "New Generator type LSA58 BMEL155",
+    "longDescription": "New Generator type LSA58 BMEL155 - 17850KVA - 10.5KV New generator to be ordered as per purchase specification 4F021-1619266 available at the following link: N:\Riazzino\Projects\B264-4F021-106409NEUSS Germany PGM130X1\07 Project Engineering\EE\05 Generator\Specification"
+  },
   
  {
     "group": "5002",
