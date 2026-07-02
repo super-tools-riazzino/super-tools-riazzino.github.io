@@ -386,14 +386,8 @@
     "longDescription": "Test Long Description"
   },
 
- {
-    "group": "5005",
-    "index": "5005.01",
-    "groupDescription": "USER DEFINED SYSTEM 1 STANDARD PRICING",
-    "indexDescription": "In Scope",
-    "shortDescription": "New Generator type LSA58 BMEL155",
-    "longDescription": "New Generator type LSA58 BMEL155  17850KVA  10 5KV New generator must be a copy paste of SN 613795 and ordered under purchase specification 4F021 1619266 available at the following link N Riazzino Projects B264 4F021 106409 NEUSS Germany PGM130X1 07 Project Engineering EE 05 Generator Specification Generator must be VDE 4110 compliant CTs and PTs must be calibrated and compliant with DIN EN ISO  IEC 17025 Leroy Somer available option"
-  },
+
+
   
  {
     "group": "5004",
