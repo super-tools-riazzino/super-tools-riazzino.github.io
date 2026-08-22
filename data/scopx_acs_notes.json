@@ -122,6 +122,14 @@
     "longDescription": "Wording from the offer: The renewal of the interconnecting cabling from the instrumentation within the package enclosure and the auxiliary cubicle is not included in this offer. The renewal of power supply cables is not included in this offer. During the project execution, a cables list (including type of cables, length,…) will be provided. The customer is responsible for supplying all new cables. Package rewiring is mandatory for a control system upgrade. Other cables under customer responsibility (like boiler signal exchange, MV system references, etc.) may be re-routed from the former control panel location to the new location or replaced by customer (out of Solar Turbines scope of supply). Following the customer request to install the control and auxiliary panels off skid, the off-skid installation distance shall refer to the actual cable routing length from each field device to the new control system panels installed in the control room. Solar Turbines recommends keeping the cable length within approximately 35–40 meters to avoid impacts on cable sizing, voltage drop, and signal integrity. Longer distances (maximum 100 meters) may require cable size upgrades, additional engineering analysis, and potential design modifications. Cable glands, cable trays and modification are also under customer scope. IMPORTANT: Engineer team must provide the cable list."
   },
   {
+    "group": "2099",
+    "index": "2099.515",
+    "groupDescription": "SITE INTEGRATION",
+    "indexDescription": "Site Integration (da correggere con quello corretto)",
+    "shortDescription": "Site Integration Scope of Work",
+    "longDescription": "CONSULTANCY (Price per site); 1 day Site Survey + CKOM + Mob-Demob; 100 hours Consultancy Work; INSTALLATION SUPERVISION (price per installation mobilization); 4 day Pre-works + Mob/Demob; 7 day Installation Supervision + 2 Mob-Demob"
+  },
+  {
     "group": "21",
     "index": "21.01",
     "groupDescription": "PACKAGE WIRING / CABLE TYPE",
