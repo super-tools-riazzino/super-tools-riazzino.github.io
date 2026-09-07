@@ -63,7 +63,7 @@
     "groupDescription": "VIBRATION MONITORING - GENERATOR VELOCITY SENSORS",
     "indexDescription": "2 Velocity Sensors",
     "shortDescription": "Only 1 Velocity Sensor",
-    "longDescription": "It is present only a velocity sensor ST4210 for DE bearing. It is required to add the second velocity sensor on NDE bearing."
+    "longDescription": "It is present only a velocity sensor ST4210 (VT4210 on some old packages) for DE bearing. It is required to add the second velocity sensor on NDE bearing."
   },
   {
     "group": "1050",
@@ -113,6 +113,16 @@
     "shortDescription": "Package Rewiring – Engineering Only",
     "longDescription": "Wording from the offer: The renewal of the interconnecting cabling from the instrumentation within the package enclosure and the auxiliary cubicle is not included in this offer. The renewal of power supply cables is not included in this offer. During the project execution, a cables list (including type of cables, length,…) will be provided. The customer is responsible for supplying all new cables. Package rewiring is mandatory for a control system upgrade. Other cables under customer responsibility (like boiler signal exchange, MV system references, etc.) may be re-routed from the former control panel location to the new location or replaced by customer (out of Solar Turbines scope of supply). Following the customer request to install the control and auxiliary panels off skid, the off-skid installation distance shall refer to the actual cable routing length from each field device to the new control system panels installed in the control room. Solar Turbines recommends keeping the cable length within approximately 35–40 meters to avoid impacts on cable sizing, voltage drop, and signal integrity. Longer distances (maximum 100 meters) may require cable size upgrades, additional engineering analysis, and potential design modifications. Cable glands, cable trays and modification are also under customer scope. IMPORTANT: Engineer team must provide the cable list."
   },
+
+  {
+    "group": "2085",
+    "index": "2085.04",
+    "groupDescription": "SOLAR PROVIDED PACKAGE DEVICE RE-WIRING / RE-CABLING",
+    "indexDescription": "New and Existing Devices - Driver Only",
+    "shortDescription": "Package Rewiring - Dual Fuel",
+    "longDescription": "Package rewiring should accommodate a dual-fuel package. The additional cost has been considered."
+  },
+  
   {
     "group": "2086",
     "index": "2086.03",
@@ -232,7 +242,7 @@
     "index": "775.01",
     "groupDescription": "GENERATOR NEUTRAL GROUNDING RESISTOR",
     "indexDescription": "No",
-    "shortDescription": "NNeutral Ground Resistor",
+    "shortDescription": "Neutral Ground Resistor",
     "longDescription": "It seems that NGR isn't present but please confirm it during engineering phase"
   },
 
