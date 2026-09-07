@@ -7,6 +7,16 @@
     "shortDescription": "Original UAS is maintained",
     "longDescription": "The actual UAS (Electrostatic Filter) is maintained."
   },
+
+  {
+    "group": "491",
+    "index": "491.05",
+    "groupDescription": "LUBE OIL TANK VENT SEPARATOR",
+    "indexDescription": "Franke Filter",
+    "shortDescription": "Lube Oil Demister Hydac",
+    "longDescription": "It was not possible to select Hydac. This is an early Taurus 60 TBM Legacy package with Turbotronic 4, equipped with a Hydac lube oil demister. This technical note is intended to clarify and communicate the correct lube oil demister manufacturer."
+  },
+  
   {
     "group": "691",
     "index": "691.03",
@@ -403,6 +413,15 @@
   "indexDescription": "Transmitter",
   "shortDescription": "New Level Trasmitter",
   "longDescription": "A new level transmitter is included and installed on the existing system as TBM Legacy Standard"
+},
+
+{
+  "group": "795_100",
+  "index": "795.102",
+  "groupDescription": "GENERATOR PROTECTION TYPE",
+  "indexDescription": "Multi-Functional Protection",
+  "shortDescription": "Generator Protection Not Standard",
+  "longDescription": "The generator protection installed at the site is non-standard; in this case, it is a Siemens SIPROTEC 7UM62. Refer to the electrical schematic for all interface signals that need to be incorporated."
 },
 
 {
