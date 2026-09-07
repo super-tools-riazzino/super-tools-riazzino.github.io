@@ -229,12 +229,22 @@
   },
   {
     "group": "775",
+    "index": "775.01",
+    "groupDescription": "GENERATOR NEUTRAL GROUNDING RESISTOR",
+    "indexDescription": "No",
+    "shortDescription": "NNeutral Ground Resistor",
+    "longDescription": "It seems that NGR isn't present but please confirm it during engineering phase"
+  },
+
+  {
+    "group": "775",
     "index": "775.02",
     "groupDescription": "GENERATOR NEUTRAL GROUNDING RESISTOR",
     "indexDescription": "Yes",
     "shortDescription": "NGR Signal Controlled by Generator Protection",
     "longDescription": "This signal must be wired in the Woodward/SEG generator protection. Generator protection must be configured correctly for this signal. Depending on generator protection firmware, electrical engineer must compile and provide the correct module and file configuration. SOJT 2032 provides information for the configuration. FO-SPE-502 - Generator Protection Settings SEG MCDGV4-2 (for Firmware 3.11a). MO-T-351 - Generator Protection Settings SEG MCDGV4-2 (for firmware 3.7b)."
   },
+  
   {
     "group": "960_00",
     "index": "960.03",
@@ -259,6 +269,15 @@
     "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standi",
     "shortDescription": "Eltek Flatpack-S",
     "longDescription": "Replacement of the 24Vdc battery charger with the Eltek Flatpack-S"
+  },
+
+  {
+    "group": "961_00",
+    "index": "961.01",
+    "groupDescription": "BATTERY / CHARGER SYSTEM - 24 VDC CHARGER",
+    "indexDescription": "Panel/Wall Mounted Charger with Separate Free-standi",
+    "shortDescription": "Flatpack Battery Charger at Site",
+    "longDescription": "New Flatpack Battery Charge is available at customer site ready for replacement."
   },
   
   {
