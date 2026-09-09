@@ -264,6 +264,24 @@
     "shortDescription": "NGR Signal Controlled by Generator Protection",
     "longDescription": "This signal must be wired in the Woodward/SEG generator protection. Generator protection must be configured correctly for this signal. Depending on generator protection firmware, electrical engineer must compile and provide the correct module and file configuration. SOJT 2032 provides information for the configuration. FO-SPE-502 - Generator Protection Settings SEG MCDGV4-2 (for Firmware 3.11a). MO-T-351 - Generator Protection Settings SEG MCDGV4-2 (for firmware 3.7b)."
   },
+
+  {
+    "group": "775",
+    "index": "775.02",
+    "groupDescription": "GENERATOR NEUTRAL GROUNDING RESISTOR",
+    "indexDescription": "Yes",
+    "shortDescription": "Neutral Ground Resistor",
+    "longDescription": "NGR is present. From a CAR I got this information. Not inspected due to time limitation, however Customer informed there is some discrepancy in CT ratios. Please investigate during engineering phase"
+  },
+
+  {
+    "group": "785",
+    "index": "785.01",
+    "groupDescription": "GENERATOR NEUTRAL GROUNDING ISOLATION SWITCH",
+    "indexDescription": "No",
+    "shortDescription": "Neutral Ground Resistor Isolation Switch",
+    "longDescription": "Please verify during engineering phase if this selection is correct"
+  },
   
   {
     "group": "960_00",
