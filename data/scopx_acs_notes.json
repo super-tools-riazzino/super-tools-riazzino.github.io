@@ -26,6 +26,15 @@
     "shortDescription": "Software Backup",
     "longDescription": "Please get in contact with Jakarta/PPJA MFS Jhon.WeslyBangun@solarturbines.com to get latest software backup. Actual software backup in FOW is dated 04.04.2021"
   },
+
+  {
+    "group": "283",
+    "index": "283.02",
+    "groupDescription": "BURNER ACOUSTIC MONITORING (BAM) - ENGINE INTERFACE",
+    "indexDescription": "BAM (With Coil)",
+    "shortDescription": "BAM 2.0",
+    "longDescription": "BAM 2.0 is already installed and connected to XM124. It wasn't possible to selecte AS IS BAM2.0 so I created this technical notes to advise about it"
+  },
   
   {
     "group": "491",
@@ -61,6 +70,16 @@
     "shortDescription": "T7 Direct Wire Connection",
     "longDescription": "T7 wiring will be Direct Wire."
   },
+
+  {
+    "group": "290_100",
+    "index": "290.103",
+    "groupDescription": "FUEL ACTUATOR TYPE / ELECTRIC FUEL VALVE - ALGORITHM",
+    "indexDescription": "Energy Based Algorithm",
+    "shortDescription": "Instrumentation Only",
+    "longDescription": "The Energy-Based Algorithm is already included. Only the new Yokogawa instrumentation needs to be implemented."
+  },
+  
   {
     "group": "295",
     "index": "295.01",
@@ -101,7 +120,7 @@
     "groupDescription": "VIBRATION MONITORING - GENERATOR VELOCITY SENSORS",
     "indexDescription": "2 Velocity Sensors",
     "shortDescription": "Only 1 Velocity Sensor",
-    "longDescription": "It is present only a velocity sensor ST4210 (VT4210 on some old packages) for DE bearing. It is required to add the second velocity sensor on NDE bearing."
+    "longDescription": "It is present only a velocity sensor ST4210 (VT4210 or ST620 on some old packages) for DE bearing. It is required to add the second velocity sensor on NDE bearing."
   },
   {
     "group": "1050",
@@ -193,6 +212,16 @@
     "shortDescription": "Direct Drive AC Motor Starter",
     "longDescription": "Existing starting system will be reused"
   },
+
+  {
+    "group": "260",
+    "index": "260.06",
+    "groupDescription": "START SYSTEM DETAIL",
+    "indexDescription": "120 VDC Starter",
+    "shortDescription": "120 VDC Starter Wrong Information",
+    "longDescription": "This is the closest available selection and is technically correct. However, the description 120 VDC Starter may be misleading, as the actual starter motor armature voltage is 460 VDC. I just wanted to add a note to clarify this point. The PAE Riazzino team is currently working with the SCOPX team to implement the proper selection."
+  },
+  
   {
     "group": "291_50",
     "index": "291.21",
