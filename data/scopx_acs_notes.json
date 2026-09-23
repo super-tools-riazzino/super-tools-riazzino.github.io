@@ -35,6 +35,24 @@
     "shortDescription": "BAM 2.0",
     "longDescription": "BAM 2.0 is already installed and connected to XM124. It wasn't possible to selecte AS IS BAM2.0 so I created this technical notes to advise about it"
   },
+
+  {
+    "group": "410",
+    "index": "410.04",
+    "groupDescription": "POST LUBE BACKUP PUMP",
+    "indexDescription": "120 VDC Motor Driven",
+    "shortDescription": "24 VDC Motor Driven for Backup Pump",
+    "longDescription": "It is currently not possible to select the correct information in SCOPX. The available option incorrectly states 120 VDC Motor Driven, while the actual configuration is 24 VDC Motor Drive. The purpose of this technical note is to raise awareness within the Engineering team of this discrepancy. The PAE Riazzino team is working with the SCOPX team to correct the issue."
+  },
+
+  {
+    "group": "482_100",
+    "index": "482.102",
+    "groupDescription": "LUBE OIL TANK LEVEL SENSING",
+    "indexDescription": "Switches",
+    "shortDescription": "2 Level Switches",
+    "longDescription": "Although the P&ID shows only one level switch, there are most likely two switches installed. This was a common error in older TBM P&IDs."
+  },
   
   {
     "group": "491",
@@ -52,6 +70,15 @@
     "indexDescription": "Franke Filter",
     "shortDescription": "Lube Oil Demister Hydac",
     "longDescription": "It was not possible to select Hydac. This is an early Taurus 60 TBM Legacy package with Turbotronic 4, equipped with a Hydac lube oil demister. This technical note is intended to clarify and communicate the correct lube oil demister manufacturer."
+  },
+
+  {
+    "group": "497",
+    "index": "497.02",
+    "groupDescription": "LUBE OIL HEADER PRESSURE",
+    "indexDescription": "Transmitter",
+    "shortDescription": "PS3031 Relocation",
+    "longDescription": "PS3031 to be relocated upstream of RV3120 (check valve/control valve)"
   },
   
   {
