@@ -80,6 +80,15 @@
     "shortDescription": "PS3031 Relocation",
     "longDescription": "PS3031 to be relocated upstream of RV3120 (check valve/control valve)"
   },
+
+  {
+    "group": "500",
+    "index": "500.02",
+    "groupDescription": "LUBE OIL TYPE",
+    "indexDescription": "Petroleum Base - Viscosity Grade C46",
+    "shortDescription": "Lube Oil Type Viscosity",
+    "longDescription": "The lubricant viscosity on site is expected to be ISO VG 46 (C46); however, this has not yet been confirmed. Please take note of this technical note and verify the actual viscosity during the engineering phase."
+  },
   
   {
     "group": "691",
