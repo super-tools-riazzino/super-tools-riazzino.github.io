@@ -604,7 +604,7 @@
     "shortDescription": "Power Uprate Package Adaptation",
     "longDescription": "PGM T130-23001 Power Uprate, main components to be ordered: Air inlet duct suitable for T130-23001 New Cleaning Kits"
   },
- 
+
 {
     "group": "5001",
     "index": "5001.01",
@@ -612,6 +612,15 @@
     "indexDescription": "In Scope",
     "shortDescription": "Generator Power Limitation",
     "longDescription": "The current generator (LSA58 BMCL140 / 4p – 17’000 kVA – 11’000 V) will not supports the higher   power produced by the new engine when working with low inductive cos phi (e.g 0.8 ind) and with ambient temperature range within 0°C and 30°C. A software Apparent Power [KVA] limitation will be implemented avoiding any generator overload."
+  },
+  
+{
+    "group": "5001",
+    "index": "5001.01",
+    "groupDescription": "MAINTAIN INTERNAL GAS LINE (NEW INSTRUMENTATION)",
+    "indexDescription": "In Scope",
+    "shortDescription": "New Instrumentation Gas Fuel Line",
+    "longDescription": "The existing gas fuel line will be retained as it is. Only the instrumentation needs to be modified."
   }
   
 ]
