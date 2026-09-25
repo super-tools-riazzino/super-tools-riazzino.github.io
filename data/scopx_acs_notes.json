@@ -28,12 +28,21 @@
   },
 
   {
-    "group": "283",
-    "index": "283.02",
-    "groupDescription": "BURNER ACOUSTIC MONITORING (BAM) - ENGINE INTERFACE",
-    "indexDescription": "BAM (With Coil)",
-    "shortDescription": "BAM 2.0",
-    "longDescription": "BAM 2.0 is already installed and connected to XM124. It wasn't possible to selecte AS IS BAM2.0 so I created this technical notes to advise about it"
+    "group": "18_556",
+    "index": "18.5561",
+    "groupDescription": "REAL TIME PC",
+    "indexDescription": "In Scope",
+    "shortDescription": "Software Backup",
+    "longDescription": "Please get in contact with Jakarta/PPJA MFS Jhon.WeslyBangun@solarturbines.com to get latest software backup. Actual software backup in FOW is dated 04.04.2021"
+  },
+
+  {
+    "group": "80",
+    "index": "80.02",
+    "groupDescription": "ENGINE RATING MATCH",
+    "indexDescription": "59degF (15degC)",
+    "shortDescription": "59degF (15degC)",
+    "longDescription": "Please reverify correct selection during engineering phase"
   },
 
   {
