@@ -587,6 +587,15 @@
     "longDescription": "See SUR file CS-NA24-88440 - 10840T1 AGRITECH - Solonox to Conventional on TTS3 - SUR - Rev 0.docx. Summary: Updating TCOMMS configuration; Removing the Pilot valve and sealing the pipe with a blind flange; Installing a bridge for the pressure switch downstream of the former Pilot valve; Modifying VGV logic and hardware to shift from 4-20 mA to On-Off control"
   },
 
+  {
+    "group": "5001",
+    "index": "5001.01",
+    "groupDescription": "ANTI ICING",
+    "indexDescription": "In Scope",
+    "shortDescription": "Anti Icing",
+    "longDescription": "Implement the existing TTS4 Anti-Icing logic in Turbotronic 6."
+  },
+
  {
     "group": "5005",
     "index": "5005.01",
