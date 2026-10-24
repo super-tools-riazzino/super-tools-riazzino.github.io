@@ -578,6 +578,15 @@
     "longDescription": "Test Long Description"
   },
 
+  {
+    "group": "5001",
+    "index": "5001.01",
+    "groupDescription": "SOLONOX TO CONVENTIONAL CONVERSION",
+    "indexDescription": "In Scope",
+    "shortDescription": "SoLoNOx to Conventional Conversion",
+    "longDescription": "See SUR file CS-NA24-88440 - 10840T1 AGRITECH - Solonox to Conventional on TTS3 - SUR - Rev 0.docx. Summary: Updating TCOMMS configuration; Removing the Pilot valve and sealing the pipe with a blind flange; Installing a bridge for the pressure switch downstream of the former Pilot valve; Modifying VGV logic and hardware to shift from 4-20 mA to On-Off control"
+  },
+
  {
     "group": "5005",
     "index": "5005.01",
