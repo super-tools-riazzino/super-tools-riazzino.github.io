@@ -1,6 +1,42 @@
 [
 
   {
+    "group": "510",
+    "index": "510.02",
+    "groupDescription": "CONTROL CONSOLE TYPE",
+    "indexDescription": "Non-EP 1 Bay",
+    "shortDescription": "Two Non-EP 1 Bay Cubicles",
+    "longDescription": "Two Non-EP 1-Bay Cubicles are included in the scope: one for Control and one for Auxiliary."
+  },
+
+  {
+    "group": "18_306",
+    "index": "18.3061",
+    "groupDescription": "FUEL PURGE SYSTEM",
+    "indexDescription": "In Scope",
+    "shortDescription": "Fuel Purge System",
+    "longDescription": "At the time the ACS was performed, it was not yet clear whether the engine would be configured as gas-only or dual-fuel. For a gas-only engine, the fuel purge system is not required. For a dual-fuel engine, even if liquid fuel will not be used and remains dormant, a cooled PCD purge system is still required."
+  },
+  
+  {
+    "group": "596",
+    "index": "596.03",
+    "groupDescription": "STARTING PANEL",
+    "indexDescription": "Maintain Existing",
+    "shortDescription": "Power Flex DC Driver with DLR Card",
+    "longDescription": "The current PowerFlex DC Drive with TTS4 uses hardwired analog signals for communication. With Turbotronic 6, communication with the PowerFlex DC Drive can be performed via DLR; therefore, an additional communication card must be installed in the PowerFlex DC Drive."
+  },
+  
+  {
+    "group": "260",
+    "index": "260.03",
+    "groupDescription": "START SYSTEM DETAIL",
+    "indexDescription": "Direct Drive AC Motor Starter",
+    "shortDescription": "Starting Cubicle with Power Flex DC Driver",
+    "longDescription": "The SCOPX selection does not currently include the correct option to select a Starting Cubicle with a PowerFlex DC Drive. This technical note is intended to clarify that the proposed system is DC, not AC."
+  },
+  
+  {
     "group": "8_551",
     "index": "18.5511",
     "groupDescription": "LOCAL HMI",
