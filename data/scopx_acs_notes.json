@@ -17,6 +17,15 @@
     "shortDescription": "Fuel Purge System",
     "longDescription": "At the time the ACS was performed, it was not yet clear whether the engine would be configured as gas-only or dual-fuel. For a gas-only engine, the fuel purge system is not required. For a dual-fuel engine, even if liquid fuel will not be used and remains dormant, a cooled PCD purge system is still required."
   },
+
+  {
+    "group": "260_40",
+    "index": "260.41",
+    "groupDescription": "START SYSTEM VFD COMMUNICATION",
+    "indexDescription": "Hardwire",
+    "shortDescription": "Power Flex DC Driver with DLR Card",
+    "longDescription": "The current PowerFlex DC Drive with TTS4 uses hardwired analog signals for communication. With Turbotronic 6, communication with the PowerFlex DC Drive can be performed via DLR; therefore, an additional communication card must be installed in the PowerFlex DC Drive."
+  },
   
   {
     "group": "596",
