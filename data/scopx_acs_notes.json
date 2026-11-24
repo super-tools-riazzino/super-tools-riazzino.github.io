@@ -692,7 +692,7 @@
     "groupDescription": "MAINTAIN INTERNAL GAS LINE (NEW INSTRUMENTATION)",
     "indexDescription": "In Scope",
     "shortDescription": "New Instrumentation Gas Fuel Line",
-    "longDescription": "The existing gas fuel line will be retained as it is. Only the instrumentation needs to be modified."
+    "longDescription": "The existing gas fuel line will be retained as it is. Only the instrumentation needs to be updated.[In case the today configuration doesn't include the Temperature Transmitter, a new pipe between SOV and metering valves, with dedicated nipples for PT and TT, must be included]"
   }
   
 ]
